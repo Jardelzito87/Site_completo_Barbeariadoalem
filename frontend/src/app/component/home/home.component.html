@@ -1,0 +1,144 @@
+<section class="apresentacao-barbearia">
+  <div class="apresentacao-conteudo">
+    <img src="https://i.postimg.cc/HspNQM7s/download.jpg" alt="Logo Barbearia" class="imagem-apresentacao" />
+    <h2 class="home-bemvindo-titulo">Bem-vindo à Barbearia do Além</h2>
+    <div class="texto-container">
+      <p class="slogan-principal">Entre se tiver coragem!</p>
+      <p class="descricao-servico">Corte de cabelo e barba com um toque sobrenatural.</p>
+      <p class="efeito-sangue">Transforme seu visual em uma experiência arrepiante!</p>
+    </div>
+  </div>
+</section>
+
+<section class="home-banner">
+  <img src="https://i.postimg.cc/3JY98d1B/barbearia-banner-jpg.jpg" alt="Banner Barbearia do Além" class="banner-img" />
+</section>
+
+<section class="home-apresentacao">
+  <p class="apresentacao-destaque">O lugar onde seu visual ganha um toque sobrenatural!<br><br> Profissionais experientes, ambiente misterioso e atendimento de outro mundo.</p>
+</section><br><br>
+
+<section class="home-cortes-alem">
+  <div class="galeria-cortes">
+    <img src="https://i.postimg.cc/J4q9gxWk/download-3.jpg" alt="Estilo 1" class="galeria-img" />
+    <img src="https://i.postimg.cc/BbCwrSR0/image.jpg" alt="Estilo 2" class="galeria-img" />
+    <img src="https://i.postimg.cc/595GYgyR/Edward-and-Captain-Jack-Sparrow.jpg" alt="Estilo 3" class="galeria-img" />
+  </div>
+
+  <h3 class="home-cortes-titulo-alem">Cortes que temos no além!</h3>
+  <div class="dashboard-cortes">
+    <table class="tabela-cortes">
+      <thead>
+        <tr>
+          <th>Tipo de Corte</th>
+          <th>Preço</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Corte Sobrenatural</td>
+          <td>R$ 45,00</td>
+          <td>
+            Transformação completa com técnicas ancestrais.<br>
+            Inclui ritual de purificação capilar.
+          </td>
+        </tr>
+        <tr>
+          <td>Degradê Espectral</td>
+          <td>R$ 55,00</td>
+          <td>
+            Fade perfeito com transições invisíveis.<br>
+            Realizado com tesouras forjadas em metal do além.
+          </td>
+        </tr>
+        <tr>
+          <td>Navalha Demoníaca</td>
+          <td>R$ 65,00</td>
+          <td>
+            Precisão sobrenatural com nossa navalha ritual.<br>
+            Inclui massagem craniana com óleos místicos.
+          </td>
+        </tr>
+        <tr>
+          <td>Barba Maldita</td>
+          <td>R$ 40,00</td>
+          <td>
+            Modelagem completa da barba com produtos infernais.<br>
+            Inclui toalha quente e óleo de barba especial.
+          </td>
+        </tr>
+        <tr>
+          <td>Pacto Completo</td>
+          <td>R$ 90,00</td>
+          <td>
+            Combo de corte e barba com direito a ritual completo.<br>
+            Inclui bebida e tratamento especial.
+          </td>
+        </tr>
+        <tr>
+          <td>Transformação Sombria</td>
+          <td>R$ 120,00</td>
+          <td>
+            Mudança radical de visual com direito a coloração<br>
+            e tratamento capilar das trevas.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="home-servicos"><br><br><br>
+  <!-- Fantasmas Animados -->
+  <div class="fantasmas-home">
+    <div class="fantasma-esquerda-home">
+      👻
+    </div>
+    <div class="fantasma-direita-home">
+      👻
+    </div>
+  </div>
+  <h2 class="home-servicos-titulo">Serviços em destaque</h2><br><br><br>
+  <div class="servicos-destaque">
+    <div class="servico-card servico-card-clicavel" (click)="navegarParaGaleria('Corte Sobrenatural')">
+      <img src="https://i.postimg.cc/P56SFTmM/Cabelo.jpg" alt="Corte de cabelo estilizado" class="servico-img servico-img-logo" />
+      <h3>Corte Sobrenatural</h3>
+    </div>
+    <div class="servico-card servico-card-clicavel" (click)="navegarParaGaleria('Barba Maldita')">
+      <img src="https://i.postimg.cc/xT3xMK8h/Barba.jpg" alt="Barba desenhada" class="servico-img servico-img-logo" />
+      <h3>Barba Maldita</h3>
+    </div>
+    <div class="servico-card servico-card-clicavel" (click)="navegarParaGaleria('Pacto completo')">
+      <img src="https://i.postimg.cc/13RWHfNt/Cabelo-Barba.jpg" alt="Tratamentos especiais" class="servico-img servico-img-logo" />
+      <h3>Pacto Completo</h3>
+    </div>
+  </div>
+</section>
+
+<section class="home-depoimentos">
+  <h2 class="home-depoimentos-titulo">Venha fazer uma visita no Além!</h2>
+  <div class="depoimentos-agendamento-tabela-wrapper">
+    <table class="tabela-depoimentos-agendamento">
+      <thead>
+        <tr>
+          <th>Depoimentos dos Corajosos</th>
+          <th>Agendamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            “Nunca imaginei que um corte pudesse ser tão arrepiante!”<br>
+            “Ambiente incrível, atendimento top!”
+          </td>
+          <td class="agendamento-cell">
+            <span class="agendamento-destaque">Agende sua visita!</span><br>
+            <a routerLink="/agendamento" class="btn-agendar">Clique aqui para agendar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+

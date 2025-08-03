@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Barbearia do Além - Documentação</title>
+    <meta name="description" content="Documentação completa da API da Barbearia do Além - Endpoints, autenticação e exemplos">
+    <meta name="keywords" content="api, barbearia, documentação, endpoints, node.js, express">
+    
+    <!-- CSS externo para documentação -->
+    <link rel="stylesheet" href="css/api-docs.css">
+</head>
+<body>
+    <h1>🏪 API da Barbearia do Além</h1>
+    
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <p><strong>✅ API Backend Funcionando!</strong></p>
+            <p>Versão: <code>2.0.0</code> | Porta: <code>3000</code> | Status: <span style="color: green;">🟢 Online</span></p>
+        </div>
+        
+        <p>Bem-vindo à API da <strong>Barbearia do Além</strong>. Esta API fornece endpoints para gerenciar agendamentos, clientes e serviços.</p>
+        
+        <h2>Endpoints Disponíveis:</h2>
+        
+        <div class="endpoint">
+            <h3>🔐 Autenticação</h3>
+            <p><code>POST /api/admin/login</code> - Login do administrador</p>
+            <p><code>POST /api/admin/logout</code> - Logout do administrador</p>
+            <p><code>GET /api/admin/verificar-sessao</code> - Verificar sessão ativa</p>
+        </div>
+
+        <div class="endpoint">
+            <h3>⚙️ Serviços</h3>
+            <p><code>GET /api/servicos</code> - Listar todos os serviços disponíveis</p>
+        </div>
+        
+        <div class="endpoint">
+            <h3>👥 Clientes</h3>
+            <p><code>POST /api/clientes</code> - Criar um novo cliente</p>
+            <p><code>GET /api/clientes</code> - Listar todos os clientes</p>
+        </div>
+        
+        <div class="endpoint">
+            <h3>📅 Agendamentos</h3>
+            <p><code>GET /api/agendamentos</code> - Listar todos os agendamentos</p>
+            <p><code>POST /api/agendamentos</code> - Criar um novo agendamento</p>
+            <p><code>PATCH /api/agendamentos/:id</code> - Atualizar status de um agendamento</p>
+            <p><code>DELETE /api/agendamentos/:id</code> - Cancelar agendamento</p>
+        </div>
+        
+        <div class="endpoint">
+            <h3>🚫 Datas Bloqueadas</h3>
+            <p><code>GET /api/datas-bloqueadas</code> - Listar datas bloqueadas</p>
+            <p><code>POST /api/datas-bloqueadas</code> - Bloquear uma data</p>
+            <p><code>DELETE /api/datas-bloqueadas/:data</code> - Desbloquear uma data</p>
+        </div>
+
+        <div class="endpoint">
+            <h3>📊 Status e Logs</h3>
+            <p><code>GET /api/status</code> - Status da aplicação</p>
+            <p><code>GET /api/admin/logs</code> - Logs do sistema</p>
+        </div>
+    </div>
+    
+    <div class="links-section">
+        <h3>🌐 Links Úteis</h3>
+        <p><strong>Frontend da Aplicação:</strong> <a href="http://localhost:4200" target="_blank">http://localhost:4200</a></p>
+        <p><strong>Painel Admin:</strong> <a href="http://localhost:4200/admin" target="_blank">http://localhost:4200/admin</a></p>
+        <p><strong>Login Admin:</strong> <a href="http://localhost:4200/login" target="_blank">http://localhost:4200/login</a></p>
+    </div>
+
+    <div class="footer">
+        <p>🏪 <strong>Barbearia do Além</strong> - Sistema de Agendamento</p>
+        <p>Desenvolvido com ❤️ usando <strong>Angular + Node.js + PostgreSQL</strong></p>
+        <p>Versão: <strong>2.0.0</strong> | Última atualização: Julho 2025</p>
+    </div>
+</body>
+</html>

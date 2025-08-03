@@ -1,0 +1,56 @@
+{
+  "name": "barbearia-do-alem",
+  "version": "2.0.0",
+  "description": "Sistema completo de agendamentos para Barbearia do Além - Angular + Node.js + PostgreSQL",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "setup": "npm run install:all && npm run security:update",
+    "install:all": "npm install && npm run install:frontend && npm run install:backend",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "dev:frontend": "cd frontend && npm start",
+    "dev:backend": "cd backend && npm start",
+    "start": "cd backend && npm start",
+    "build": "cd frontend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "start:prod": "cd backend && npm run start",
+    "clean": "npm run clean:frontend && npm run clean:backend && rimraf node_modules",
+    "clean:frontend": "cd frontend && rimraf node_modules",
+    "clean:backend": "cd backend && rimraf node_modules",
+    "test:connection": "cd backend && npm run test-connection",
+    "test:api": "cd backend && npm run test-api",
+    "security:update": "cd backend && npm run generate-credentials",
+    "security:check": "npm audit && cd frontend && npm audit && cd ../backend && npm audit",
+    "setup:db": "cd backend && npm run setup-neon",
+    "init:data": "cd backend && npm run init-data"
+  },
+  "keywords": [
+    "barbearia",
+    "agendamento",
+    "angular",
+    "nodejs",
+    "postgresql",
+    "fullstack"
+  ],
+  "author": "Barbearia do Além",
+  "license": "MIT",
+  "devDependencies": {
+    "rimraf": "^5.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jardelzito87/ProjetoBarbeariaDoAlem-o.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jardelzito87/ProjetoBarbeariaDoAlem-o/issues"
+  },
+  "homepage": "https://github.com/Jardelzito87/ProjetoBarbeariaDoAlem-o#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

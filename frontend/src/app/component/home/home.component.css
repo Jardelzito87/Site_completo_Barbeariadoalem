@@ -1,0 +1,1087 @@
+/* ==============================
+   ESTILOS ESPECÍFICOS DO HOME
+   ============================== */
+
+/* Apresentação Principal */
+.apresentacao-barbearia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px 40px 20px;
+    background: rgba(34,34,34,0.8);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin-bottom: 30px;
+}
+
+.apresentacao-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    max-width: 900px;
+    width: 100%;
+}
+
+.imagem-apresentacao {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5), 0 0 15px rgba(179,0,0,0.3);
+    border: 5px solid #d4af37;
+    margin-bottom: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.imagem-apresentacao:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6), 0 0 20px rgba(179,0,0,0.5);
+}
+
+.apresentacao-conteudo h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+/* HOME - Título Bem-vindo único */
+.home-bemvindo-titulo {
+    text-align: center;
+    font-family: 'Creepster', cursive;
+    color: #d4af37;
+    font-size: 2.8rem; /* Único do HOME */
+    margin-bottom: 28px; /* Único do HOME */
+    letter-spacing: 2.5px; /* Único do HOME */
+    text-shadow: 0 3px 18px #222, 0 1px 14px #b30000; /* Único do HOME */
+    text-transform: uppercase; /* Único do HOME */
+}
+
+.apresentacao-conteudo p {
+    font-size: 1.1rem;
+    color: #eee;
+}
+
+/* HOME - Título estiloso com fundo único */
+.home-bemvindo-titulo-estiloso {
+  text-align: center;
+  font-family: 'Creepster', cursive;
+  color: #fff;
+  font-size: 2.9rem; /* Maior que outros componentes */
+  margin: 42px 0 22px 0; /* Espaçamento único */
+  letter-spacing: 3px; /* Mais espaçado */
+  text-shadow: 0 4px 20px #000, 0 2px 16px #b30000; /* Sombra mais intensa */
+  background: linear-gradient(45deg, #181818 0%, #2a2a2a 100%); /* Gradiente único */
+  padding: 18px 0 14px 0; /* Padding único */
+  border-radius: 16px; /* Mais arredondado */
+  border: 3px solid #d4af37; /* Borda dourada */
+  position: relative;
+  overflow: hidden;
+}
+
+/* HOME - Seção de Serviços título único */
+.home-servicos-titulo {
+  text-align: center;
+  font-family: 'Creepster', cursive;
+  color: #d4af37;
+  font-size: 3.1rem; /* O maior de todos */
+  margin: 72px 0 40px 0; /* Espaçamento generoso */
+  letter-spacing: 3.5px; /* Muito espaçado */
+  text-shadow: 0 4px 20px #222, 0 2px 16px #b30000, 0 0px 8px #d4af37; /* Tripla sombra */
+  font-weight: 900; /* Mais pesado */
+  position: relative;
+}
+
+.servicos-destaque {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background: linear-gradient(90deg, #181818 80%, #222 100%);
+  border: 3px solid #d4af37;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.12);
+  padding: 48px 20px;
+  margin-bottom: 48px;
+}
+
+.servico-card {
+  background: #222;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(212, 175, 55, 0.15);
+  border: 2px solid #d4af37;
+  padding: 24px 18px 18px 18px;
+  text-align: center;
+  width: 260px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servico-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 32px rgba(179, 0, 0, 0.18);
+}
+
+/* Servico card clicável */
+.servico-card-clicavel {
+  cursor: pointer;
+}
+
+.servico-img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 16px;
+  border: 4px solid #111;
+  box-shadow: 0 0 24px 4px #111, 0 2px 16px 2px #000;
+}
+
+.servico-card h3 {
+  color: #d4af37;
+  font-family: 'Creepster', cursive;
+  font-size: 1.5rem;
+  margin-top: 8px;
+  text-shadow: 0 2px 8px #222;
+  white-space: nowrap;
+}
+
+/* HOME - Título de Cortes único */
+.home-cortes-titulo-alem {
+    text-align: center;
+    font-family: 'Creepster', cursive;
+    color: #d4af37;
+    font-size: 2.5rem; /* Tamanho intermediário único */
+    margin: 35px 0; /* Margem única */
+    letter-spacing: 2.2px; /* Espaçamento único */
+    text-shadow: 0 3px 18px #222, 0 1px 14px #b30000; /* Sombra única */
+    background: linear-gradient(90deg, rgba(24, 24, 24, 0.9) 0%, rgba(44, 44, 44, 0.8) 100%); /* Gradiente único */
+    padding: 18px 0; /* Padding único */
+    border-radius: 14px; /* Raio único */
+    max-width: 650px; /* Largura única */
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.15); /* Sombra dourada única */
+    border: 2px solid rgba(212, 175, 55, 0.3); /* Borda sutil única */
+}
+
+/* HOME - Título de Depoimentos único */
+.home-depoimentos-titulo {
+    text-align: center;
+    font-family: 'Creepster', cursive;
+    color: #b30000;
+    font-size: 2.2rem; /* Tamanho menor mas marcante */
+    margin: 45px 0 30px 0; /* Margem única */
+    letter-spacing: 1.8px; /* Espaçamento único */
+    text-shadow: none; /* Removido o brilho */
+    background: linear-gradient(135deg, rgba(24, 24, 24, 0.9) 0%, rgba(34, 34, 34, 0.8) 50%, rgba(44, 44, 44, 0.9) 100%); /* Gradiente único */
+    padding: 20px 0; /* Padding único */
+    border-radius: 16px; /* Raio único */
+    max-width: 750px; /* Largura única */
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 20px rgba(179, 0, 0, 0.2), 0 2px 8px rgba(212, 175, 55, 0.1); /* Sombra dupla */
+    border: 2px solid rgba(179, 0, 0, 0.4); /* Borda vermelha */
+    position: relative;
+    /* Removido overflow: hidden para eliminar a animação de brilho */
+}
+
+.galeria-cortes {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+    justify-content: center;
+    align-items: center;
+    margin: 24px auto;
+    padding: 20px;
+    flex-wrap: wrap;
+    max-width: 800px;
+}
+
+.galeria-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    border: 3px solid #d4af37;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+}
+
+.galeria-img:hover {
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 8px 24px rgba(179,0,0,0.25);
+    border-color: #b30000;
+}
+
+/* Dashboard e Tabela de Preços - Estilo Excel temático */
+.dashboard-cortes {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 48px 0;
+    padding: 0 10px;
+    overflow-x: auto; /* Scroll horizontal em mobile */
+}
+
+.tabela-cortes {
+    width: 100%;
+    max-width: 900px;
+    min-width: 300px; /* Largura mínima */
+    border-collapse: collapse;
+    background: #181818;
+    color: #eee;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    margin: 0 auto;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+    border: 2px solid #d4af37;
+}
+
+.tabela-cortes th, .tabela-cortes td {
+    padding: 16px 20px;
+    border: 1px solid #333;
+    text-align: left;
+    font-size: 1rem;
+    vertical-align: top;
+}
+
+.tabela-cortes th {
+    background: linear-gradient(90deg, #d4af37 0%, #b30000 100%);
+    color: #181818;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: none;
+    border-color: #d4af37;
+}
+
+.tabela-cortes td {
+    background: #222;
+    color: #eee;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.tabela-cortes tr:nth-child(even) td {
+    background: #1a1a1a;
+}
+
+.tabela-cortes tr:hover td {
+    background: #333;
+    color: #d4af37;
+    transition: background 0.3s, color 0.3s;
+    transform: scale(1.01);
+}
+
+.tabela-cortes td:nth-child(2) {
+    color: #d4af37;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-align: center;
+}
+
+.tabela-cortes td:nth-child(3) {
+    font-style: italic;
+    color: #ccc;
+}
+
+/* Seção de Depoimentos & Agendamento - Tabela estilo Excel */
+.depoimentos-agendamento-tabela-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 48px 0;
+    padding: 0 10px;
+    overflow-x: auto; /* Scroll horizontal em mobile */
+}
+
+.tabela-depoimentos-agendamento {
+    width: 100%;
+    max-width: 900px;
+    min-width: 300px; /* Largura mínima */
+    border-collapse: collapse;
+    background: #181818;
+    color: #eee;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    margin: 0 auto;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+    border: 2px solid #d4af37;
+}
+
+.tabela-depoimentos-agendamento th, .tabela-depoimentos-agendamento td {
+    padding: 24px 20px;
+    border: 1px solid #333;
+    text-align: left;
+    font-size: 1rem;
+    vertical-align: top;
+}
+
+.tabela-depoimentos-agendamento th {
+    background: linear-gradient(90deg, #d4af37 0%, #b30000 100%);
+    color: #181818;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: none;
+    border-color: #d4af37;
+    text-align: center;
+}
+
+.tabela-depoimentos-agendamento td {
+    background: #222;
+    color: #eee;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 30px 25px;
+}
+
+.tabela-depoimentos-agendamento tr:hover td {
+    background: #333;
+    transition: background 0.3s;
+}
+
+/* Primeira coluna - Depoimentos */
+.tabela-depoimentos-agendamento td:nth-child(1) {
+    font-style: italic;
+    color: #fff;
+    font-size: 1.1rem;
+    border-right: 2px solid #d4af37;
+    width: 50%;
+}
+
+/* Segunda coluna - Agendamento */
+.tabela-depoimentos-agendamento td:nth-child(2) {
+    text-align: center;
+    color: #eee;
+    width: 50%;
+}
+
+/* Botão de agendamento dentro da tabela */
+.tabela-depoimentos-agendamento .btn-agendar {
+    display: inline-block;
+    background: linear-gradient(90deg, #d4af37 60%, #b30000 100%);
+    color: #181818;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.2);
+    margin-top: 12px;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+    border: 2px solid #d4af37;
+}
+
+.tabela-depoimentos-agendamento .btn-agendar:hover {
+    background: linear-gradient(90deg, #b30000 60%, #d4af37 100%);
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(179, 0, 0, 0.3);
+}
+
+/* Célula de agendamento */
+.agendamento-cell {
+    text-align: center;
+}
+
+/* Texto de destaque do agendamento */
+.agendamento-destaque {
+    font-weight: bold;
+    color: #b30000;
+    font-size: 1.2rem;
+}
+
+/* Container de texto e slogans */
+.texto-container {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 25px 30px;
+    background: rgba(24, 24, 24, 0.85);
+    border-radius: 16px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4); /* Sombra simples sem brilho */
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    position: relative;
+    /* Removido o overflow hidden e o efeito de brilho */
+}
+
+/* TESTE - VERIFICAR SE ESTA SENDO LIDO */
+.slogan-principal {
+    font-size: 2.2rem !important; /* Tamanho adequado - não muito grande */
+    font-weight: bold;
+    color: #8b0000 !important; /* Vermelho sangue escuro - forçado */
+    margin-bottom: 25px;
+    text-shadow: none !important; /* Sem brilho - forçado */
+    letter-spacing: 1.5px;
+    font-family: 'Creepster', cursive;
+    text-transform: uppercase;
+}
+
+.slogan-sangue {
+    font-size: 2.4rem; /* Aumentado */
+    font-weight: bold;
+    color: #9a0000;
+    margin-bottom: 30px; /* Aumentado */
+    text-shadow: 0 0 8px #ff0000, 0 0 15px #ff0000, 3px 3px 8px #000; /* Intensificado */
+    letter-spacing: 2.5px; /* Aumentado */
+    font-family: 'Creepster', cursive;
+    animation: pulseSangue 2s infinite;
+    padding: 15px; /* Aumentado */
+    background: rgba(0, 0, 0, 0.6); /* Mais escuro */
+    border-radius: 10px; /* Aumentado */
+    border-bottom: 3px solid #ff0000; /* Mais grosso */
+    text-transform: uppercase; /* Maiúsculas */
+}
+
+@keyframes pulseSangue {
+    0% { text-shadow: 0 0 8px #ff0000, 0 0 15px #ff0000, 3px 3px 8px #000; }
+    50% { text-shadow: 0 0 15px #ff0000, 0 0 25px #ff0000, 3px 3px 12px #000; }
+    100% { text-shadow: 0 0 8px #ff0000, 0 0 15px #ff0000, 3px 3px 8px #000; }
+}
+
+.descricao-servico {
+    font-size: 1.5rem; /* Aumentado */
+    color: #f0f0f0; /* Cor mais clara */
+    margin-bottom: 20px; /* Aumentado */
+    line-height: 1.7; /* Melhor legibilidade */
+    font-weight: 600; /* Mais pesado */
+    text-shadow: 
+        2px 2px 4px #8b0000,           /* Sombra vermelha sangue próxima */
+        4px 4px 8px #660000,           /* Sombra vermelha mais escura */
+        6px 6px 12px #440000,          /* Sombra vermelha muito escura */
+        0 0 15px #cc0000,              /* Brilho vermelho difuso */
+        0 0 25px rgba(139, 0, 0, 0.5); /* Aura vermelha sutil */
+    font-family: 'Georgia', 'Times New Roman', serif; /* Fonte serif elegante */
+    font-style: italic; /* Itálico para elegância */
+    text-align: center; /* Centralizado */
+    letter-spacing: 0.5px; /* Espaçamento sutil */
+    padding: 10px 0; /* Padding para respirar */
+    transition: text-shadow 0.3s ease; /* Transição suave para hover */
+}
+
+.descricao-servico:hover {
+    text-shadow: 
+        3px 3px 6px #8b0000,           /* Sombra vermelha sangue mais intensa */
+        6px 6px 12px #660000,          /* Sombra vermelha mais escura intensificada */
+        9px 9px 18px #440000,          /* Sombra vermelha muito escura mais forte */
+        0 0 20px #ff0000,              /* Brilho vermelho mais intenso */
+        0 0 35px rgba(255, 0, 0, 0.7), /* Aura vermelha mais forte */
+        0 0 45px rgba(139, 0, 0, 0.3); /* Aura adicional para efeito dramático */
+}
+
+.descricao-ambiente {
+    font-size: 1.3rem;
+    color: #eee;
+    margin-bottom: 30px;
+    font-style: italic;
+    line-height: 1.6;
+    font-weight: 400;
+    text-shadow: none; /* Removido o brilho */
+}
+
+.efeito-sangue {
+    color: #cc0000; /* Vermelho mais vibrante */
+    font-family: 'Arial Black', 'Trebuchet MS', 'Impact', sans-serif; /* Fonte mais moderna e impactante */
+    font-size: 2.0rem; /* Aumentado para mais destaque */
+    text-shadow: none; /* Removido o brilho */
+    letter-spacing: 1.5px; /* Espaçamento reduzido para fonte não-cursiva */
+    margin: 35px 0 20px 0; /* Mais espaçamento */
+    padding: 15px 20px; /* Padding aumentado */
+    text-transform: uppercase;
+    font-weight: 900; /* Mais pesado */
+    text-align: center; /* Centralizado */
+    background: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente */
+    border-radius: 12px; /* Bordas arredondadas */
+    border: 2px solid rgba(204, 0, 0, 0.3); /* Borda vermelha sutil */
+    position: relative;
+    transition: all 0.3s ease; /* Transição suave */
+    font-style: italic; /* Itálico para mais dramaticidade */
+}
+
+.efeito-sangue:hover {
+    color: #ff0000; /* Vermelho mais intenso no hover */
+    text-shadow: none; /* Removido o brilho também no hover */
+    transform: scale(1.02); /* Leve aumento no hover */
+    border-color: rgba(204, 0, 0, 0.6); /* Borda mais intensa no hover */
+    letter-spacing: 2px; /* Aumenta espaçamento no hover */
+}
+
+.apresentacao-destaque {
+    color: #d4af37;
+    font-size: 1.25rem; /* Aumentado */
+    font-weight: 700;
+    margin: 20px 0; /* Aumentado */
+    text-align: center;
+    text-shadow: 2px 2px 6px #000, 0 0 8px #d4af37; /* Melhorado */
+    font-family: 'Poppins', sans-serif; /* Fonte específica */
+    line-height: 1.6; /* Melhor legibilidade */
+    padding: 15px 20px; /* Padding adicionado */
+    background: rgba(212, 175, 55, 0.05); /* Fundo sutil */
+    border-radius: 12px; /* Bordas arredondadas */
+    border: 1px solid rgba(212, 175, 55, 0.2); /* Borda sutil */
+    max-width: 800px; /* Largura máxima */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* HOME - Depoimentos e Agendamento título único */
+.home-depoimentos-agendamento-titulo {
+  text-align: center;
+  font-family: 'Creepster', cursive;
+  color: #d4af37;
+  font-size: 2.7rem; /* Tamanho específico */
+  margin: 64px 0 28px 0; /* Margem específica */
+  letter-spacing: 2.8px; /* Espaçamento específico */
+  text-shadow: 0 3px 16px #222, 0 1px 12px #b30000; /* Sombra específica */
+  position: relative;
+  font-style: italic; /* Único do HOME - itálico */
+}
+
+.depoimentos-agendamento-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 56px auto 32px auto;
+  border: 3px solid #d4af37;
+  border-radius: 24px;
+  background: linear-gradient(90deg, #181818 80%, #222 100%);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.12);
+  flex-wrap: nowrap;
+}
+
+.depoimentos-card, .agendamento-card {
+  background: #181818;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  padding: 32px 28px 28px 28px;
+  min-width: 320px;
+  max-width: 400px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.depoimentos-card h2, .agendamento-card h2 {
+  font-family: 'Creepster', cursive;
+  color: #d4af37;
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+  letter-spacing: 2px;
+}
+
+.depoimentos-card blockquote {
+  font-size: 1.15rem;
+  color: #fff;
+  background: #222;
+  border-left: 4px solid #d4af37;
+  margin: 0 0 16px 0;
+  padding: 12px 18px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.08);
+}
+
+.agendamento-card .btn-agendar {
+  display: inline-block;
+  background: linear-gradient(90deg, #d4af37 60%, #b30000 100%);
+  color: #181818;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 12px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.15);
+  margin-top: 24px;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.agendamento-card .btn-agendar:hover {
+  background: linear-gradient(90deg, #b30000 60%, #d4af37 100%);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ==============================
+   ESTILOS ORIGINAIS DO COMPONENTE (AJUSTADOS)
+   ============================== */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.home-banner {
+  margin-bottom: 40px; /* Aumentado */
+  border-radius: 16px; /* Mais arredondado */
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5), 0 2px 8px rgba(212, 175, 55, 0.15); /* Dupla sombra */
+  border: 3px solid rgba(212, 175, 55, 0.3); /* Borda dourada */
+  position: relative;
+}
+
+.home-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, transparent 50%, rgba(179, 0, 0, 0.1) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.banner-img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease; /* Transição suave */
+}
+
+.home-banner:hover .banner-img {
+  transform: scale(1.02); /* Efeito hover sutil */
+}
+
+/* Seção de Apresentação melhorada */
+.home-apresentacao {
+  margin: 50px 0; /* Aumentado */
+  padding: 30px 20px; /* Aumentado */
+  background: rgba(34, 34, 34, 0.6); /* Fundo sutil */
+  border-radius: 20px; /* Mais arredondado */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+  border: 2px solid rgba(212, 175, 55, 0.2); /* Borda dourada sutil */
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-section {
+    margin-bottom: 3rem;
+}
+
+/* Ajustado para manter consistência visual */
+.welcome-section h1 {
+    color: #d4af37; /* ✅ Dourado tema barbearia */
+    margin-bottom: 1.5rem;
+    font-family: 'Creepster', cursive; /* ✅ Fonte temática */
+    text-shadow: 0 2px 8px #222; /* ✅ Sombra elegante */
+}
+
+/* Ajustado para melhor contraste */
+.welcome-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #eee; /* ✅ Texto claro para fundo escuro */
+    margin-bottom: 1rem;
+}
+
+/* ==============================
+   MEDIA QUERIES - RESPONSIVIDADE
+   ============================== */
+
+/* Para tablets */
+@media (max-width: 768px) {
+    .apresentacao-barbearia {
+        padding: 40px 15px 30px 15px;
+    }
+    
+    .imagem-apresentacao {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .galeria-cortes {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .galeria-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .home-cortes-titulo-alem {
+        font-size: 2.1rem;
+        margin: 25px 0;
+        padding: 15px 10px;
+    }
+    
+    .home-servicos-titulo {
+        font-size: 2.6rem;
+        margin: 50px 0 30px 0;
+    }
+    
+    .home-bemvindo-titulo {
+        font-size: 2.3rem;
+        margin-bottom: 20px;
+    }
+    
+    .servicos-destaque {
+        gap: 30px;
+        padding: 30px 15px;
+    }
+    
+    .servico-card {
+        width: 220px;
+        padding: 20px 15px 15px 15px;
+    }
+    
+    .servico-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .tabela-cortes th, .tabela-cortes td {
+        padding: 12px 8px;
+        font-size: 0.9rem;
+    }
+    
+    .tabela-depoimentos-agendamento th, .tabela-depoimentos-agendamento td {
+        padding: 18px 15px;
+        font-size: 0.95rem;
+    }
+    
+    .texto-container {
+        padding: 20px 20px;
+        margin: 0 10px;
+    }
+    
+    .slogan-principal {
+        font-size: 1.9rem !important;
+    }
+    
+    .descricao-servico {
+        font-size: 1.3rem;
+    }
+    
+    .efeito-sangue {
+        font-size: 1.7rem;
+        padding: 12px 15px;
+    }
+}
+
+/* Para smartphones */
+@media (max-width: 480px) {
+    .apresentacao-barbearia {
+        padding: 30px 10px 20px 10px;
+    }
+    
+    .imagem-apresentacao {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .galeria-cortes {
+        gap: 15px;
+        padding: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .galeria-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .home-cortes-titulo-alem {
+        font-size: 1.8rem;
+        margin: 20px 0;
+        padding: 12px 8px;
+        max-width: 95%;
+    }
+    
+    .home-servicos-titulo {
+        font-size: 2.2rem;
+        margin: 40px 0 25px 0;
+        padding: 0 10px;
+    }
+    
+    .home-bemvindo-titulo {
+        font-size: 2rem;
+        margin-bottom: 18px;
+        padding: 0 10px;
+    }
+    
+    .home-depoimentos-titulo {
+        font-size: 1.9rem;
+        margin: 35px 0 25px 0;
+        padding: 15px 8px;
+        max-width: 95%;
+    }
+    
+    .servicos-destaque {
+        gap: 20px;
+        padding: 25px 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .servico-card {
+        width: 90%;
+        max-width: 280px;
+        padding: 18px 12px 12px 12px;
+    }
+    
+    .servico-img {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .servico-card h3 {
+        font-size: 1.3rem;
+        white-space: normal;
+        text-align: center;
+    }
+    
+    .tabela-cortes {
+        min-width: 280px;
+    }
+    
+    .tabela-cortes th, .tabela-cortes td {
+        padding: 10px 6px;
+        font-size: 0.85rem;
+    }
+    
+    .tabela-depoimentos-agendamento {
+        min-width: 280px;
+    }
+    
+    .tabela-depoimentos-agendamento th {
+        font-size: 1rem;
+        padding: 15px 10px;
+    }
+    
+    .tabela-depoimentos-agendamento td {
+        padding: 20px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .tabela-depoimentos-agendamento .btn-agendar {
+        font-size: 1rem;
+        padding: 10px 20px;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .texto-container {
+        padding: 18px 15px;
+        margin: 0 5px;
+    }
+    
+    .slogan-principal {
+        font-size: 1.7rem !important;
+        margin-bottom: 20px;
+    }
+    
+    .descricao-servico {
+        font-size: 1.2rem;
+        margin-bottom: 18px;
+    }
+    
+    .efeito-sangue {
+        font-size: 1.5rem;
+        padding: 10px 12px;
+        margin: 25px 0 15px 0;
+    }
+    
+    .apresentacao-destaque {
+        font-size: 1.1rem;
+        padding: 12px 15px;
+        margin: 15px 5px;
+        max-width: 95%;
+    }
+    
+    .home-banner {
+        margin: 0 10px 30px 10px;
+        border-radius: 12px;
+    }
+    
+    .home-apresentacao {
+        margin: 30px 10px;
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+}
+
+/* ==============================
+   FANTASMAS ANIMADOS
+   ============================== */
+
+.fantasmas-home {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.fantasma-esquerda-home, .fantasma-direita-home {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  z-index: 10;
+}
+
+.fantasma-esquerda-home {
+  left: 0;
+  animation: fantasmaEsquerdaHome 4s ease-in-out infinite;
+}
+
+.fantasma-direita-home {
+  right: 0;
+  animation: fantasmaDireitaHome 4s ease-in-out infinite;
+}
+
+@keyframes fantasmaEsquerdaHome {
+  0% {
+    left: 0;
+    transform: translateY(-50%) scaleX(1) rotate(0deg);
+  }
+  25% {
+    left: 15%;
+    transform: translateY(-50%) scaleX(1) rotate(-3deg);
+  }
+  50% {
+    left: 40%;
+    transform: translateY(-50%) scaleX(1) rotate(0deg);
+  }
+  75% {
+    left: 15%;
+    transform: translateY(-50%) scaleX(1) rotate(3deg);
+  }
+  100% {
+    left: 0;
+    transform: translateY(-50%) scaleX(1) rotate(0deg);
+  }
+}
+
+@keyframes fantasmaDireitaHome {
+  0% {
+    right: 0;
+    transform: translateY(-50%) scaleX(-1) rotate(0deg);
+  }
+  25% {
+    right: 15%;
+    transform: translateY(-50%) scaleX(-1) rotate(3deg);
+  }
+  50% {
+    right: 40%;
+    transform: translateY(-50%) scaleX(-1) rotate(0deg);
+  }
+  75% {
+    right: 15%;
+    transform: translateY(-50%) scaleX(-1) rotate(-3deg);
+  }
+  100% {
+    right: 0;
+    transform: translateY(-50%) scaleX(-1) rotate(0deg);
+  }
+}
+
+/* Efeitos de brilho removidos */
+
+/* Responsividade para os fantasmas */
+@media (max-width: 768px) {
+  .fantasma-esquerda-home, .fantasma-direita-home {
+    font-size: 2.5rem;
+  }
+  
+  .fantasmas-home {
+    height: 60px;
+    margin-bottom: 15px;
+  }
+  
+  @keyframes fantasmaEsquerdaHome {
+    0%, 100% { left: 0; }
+    50% { left: 30%; }
+  }
+  
+  @keyframes fantasmaDireitaHome {
+    0%, 100% { right: 0; }
+    50% { right: 30%; }
+  }
+}
+
+@media (max-width: 480px) {
+  .fantasma-esquerda-home, .fantasma-direita-home {
+    font-size: 2rem;
+  }
+  
+  .fantasmas-home {
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  @keyframes fantasmaEsquerdaHome {
+    0%, 100% { left: 0; }
+    50% { left: 25%; }
+  }
+  
+  @keyframes fantasmaDireitaHome {
+    0%, 100% { right: 0; }
+    50% { right: 25%; }
+  }
+}
+
+/* Telas muito pequenas */
+@media (max-width: 320px) {
+  .home-bemvindo-titulo {
+    font-size: 1.8rem;
+    padding: 0 5px;
+  }
+  
+  .home-servicos-titulo {
+    font-size: 2rem;
+    padding: 0 5px;
+  }
+  
+  .home-cortes-titulo-alem {
+    font-size: 1.6rem;
+    padding: 10px 5px;
+  }
+  
+  .servico-card {
+    width: 95%;
+    padding: 15px 8px;
+  }
+  
+  .servico-img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .tabela-cortes th, .tabela-cortes td {
+    padding: 8px 4px;
+    font-size: 0.8rem;
+  }
+  
+  .texto-container {
+    padding: 15px 10px;
+    margin: 0;
+  }
+  
+  .slogan-principal {
+    font-size: 1.5rem !important;
+  }
+  
+  .descricao-servico {
+    font-size: 1.1rem;
+  }
+  
+  .efeito-sangue {
+    font-size: 1.3rem;
+    padding: 8px 10px;
+  }
+}

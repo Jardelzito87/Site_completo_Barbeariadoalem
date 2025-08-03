@@ -1,0 +1,320 @@
+
+/* Importa fonte temática de Halloween para elementos especiais */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+/* ==============================
+   ESTILOS GLOBAIS DA APLICAÇÃO
+   ============================== */
+
+/* Reset universal - Garante dimensionamento consistente */
+* {
+    box-sizing: border-box; /* Inclui padding e border no tamanho total */
+}
+
+/* Configuração base do corpo da página */
+body {
+    margin: 0; /* Remove margem padrão do navegador */
+    padding: 0; /* Remove padding padrão do navegador */
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte principal moderna */
+    background: linear-gradient(135deg, #232526 0%, #414345 100%); /* Gradiente escuro elegante */
+    color: #eee; /* Texto claro para contraste com fundo escuro */
+    min-height: 100vh; /* Altura mínima da tela completa */
+}
+
+/* ==============================
+   HEADER E NAVEGAÇÃO PRINCIPAL
+   ============================== */
+
+/* Header principal fixo - Sempre visível no topo */
+.header-barbearia {
+    display: flex; /* Layout flexível */
+    flex-direction: column; /* Empilha elementos verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    background: #222; /* Fundo escuro sólido */
+    padding: 24px 0 12px 0; /* Espaçamento interno assimétrico */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Sombra sutil para profundidade */
+    position: fixed; /* Fixo no topo da tela */
+    top: 0; /* Posicionado no topo */
+    left: 0; /* Alinhado à esquerda */
+    width: 100%; /* Largura total da tela */
+    z-index: 1000; /* Fica acima de outros elementos */
+}
+
+/* Container interno do header - Limita largura máxima */
+.header-container {
+    display: flex; /* Layout flexível */
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: center; /* Centraliza horizontalmente */
+    width: 100%; /* Usa toda largura disponível */
+    max-width: 1200px; /* Largura máxima para telas grandes */
+    position: relative; /* Permite posicionamento absoluto dos filhos */
+    padding: 0 20px; /* Padding lateral para mobile */
+}
+
+/* Ícones fantasmas decorativos - Animação flutuante */
+.ghost-icon {
+    position: absolute; /* Posicionamento absoluto dentro do container */
+    animation: float 3s ease-in-out infinite; /* Animação de flutuar contínua */
+}
+
+/* Fantasma da esquerda - Posicionamento fixo */
+.ghost-left {
+    left: 20px; /* 20px da borda esquerda */
+}
+
+/* Fantasma da direita - Posicionamento e delay de animação */
+.ghost-right {
+    right: 20px; /* 20px da borda direita */
+    animation-delay: 1.5s; /* Delay para criar movimento dessincronizado */
+}
+
+/* Estilo dos SVGs dos fantasmas */
+.ghost-svg {
+    width: 40px; /* Largura fixa */
+    height: 40px; /* Altura fixa */
+    fill: #ffffff; /* Cor branca */
+    filter: drop-shadow(0 0 5px #b30000); /* Brilho vermelho sombrio */
+}
+
+/* Fantasma da direita espelhado - Olha para direção oposta */
+.ghost-right-svg {
+    transform: scaleX(-1); /* Espelha horizontalmente */
+}
+
+/* Animação de flutuação - Movimento vertical suave */
+@keyframes float {
+    0% { transform: translateY(0px); } /* Posição inicial */
+    50% { transform: translateY(-10px); } /* Sobe 10px no meio */
+    100% { transform: translateY(0px); } /* Volta à posição inicial */
+}
+
+/* Animação de pulsação - Cresce e diminui (reserva para futuro uso) */
+@keyframes pulse {
+    0% { transform: scale(1); } /* Tamanho normal */
+    50% { transform: scale(1.1); } /* Cresce 10% */
+    100% { transform: scale(1); } /* Volta ao normal */
+}
+
+/* Navegação Principal - Menu de páginas da barbearia */
+nav {
+    margin-top: 12px; /* Espaço entre header e menu */
+}
+
+/* Lista do menu - Layout horizontal com fantasmas */
+.menu-barbearia {
+    display: flex; /* Itens em linha horizontal */
+    gap: 32px; /* Espaçamento entre links do menu */
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap; /* Permite quebra de linha */
+    justify-content: center; /* Centraliza itens */
+}
+
+/* Links do menu - Estilo padrão e hover */
+.menu-barbearia li a {
+    color: #eee; /* Texto claro */
+    text-decoration: none; /* Remove sublinhado */
+    font-size: 1.2rem; /* Tamanho do texto */
+    font-weight: 500; /* Peso médio da fonte */
+    transition: color 0.2s; /* Transição suave no hover */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço para ícones (se houver) */
+}
+
+/* Efeito hover - Cor dourada tema barbearia */
+.menu-barbearia li a:hover {
+    color: #eab543; /* Dourado no hover */
+}
+
+/* ==============================
+   LAYOUT PRINCIPAL
+   ============================== */
+
+/* Container principal do conteúdo - Área após o header */
+main {
+    min-height: 300px; /* Altura mínima para garantir espaço */
+    padding: 24px; /* Espaçamento interno uniforme */
+    margin-top: 120px; /* Compensa altura do header fixo */
+    width: 100%; /* Largura total */
+    box-sizing: border-box; /* Inclui padding na largura */
+}
+
+/* ==============================
+   RODAPÉ
+   ============================== */
+
+/* Rodapé da aplicação - Informações finais */
+.footer-barbearia {
+    background: #222; /* Fundo escuro igual ao header */
+    color: #eee; /* Texto claro */
+    text-align: center; /* Centraliza o texto */
+    padding: 18px 10px; /* Espaçamento vertical e lateral */
+    font-size: 1rem; /* Tamanho padrão da fonte */
+    border-top: 2px solid #eab543; /* Borda dourada no topo */
+    margin-top: 32px; /* Espaço antes do rodapé */
+    width: 100%; /* Largura total */
+    box-sizing: border-box; /* Inclui padding na largura */
+}
+
+
+/* ==============================
+   MEDIA QUERIES - RESPONSIVIDADE GLOBAL
+   ============================== */
+
+/* Tablets e telas médias (768px e abaixo) */
+@media (max-width: 768px) {
+    /* Header responsivo */
+    .header-barbearia {
+        padding: 16px 0 8px 0;
+    }
+    
+    .header-container {
+        flex-direction: column;
+        gap: 16px;
+        padding: 0 15px;
+    }
+    
+    /* Menu responsivo */
+    .menu-barbearia {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .menu-barbearia li a {
+        font-size: 1.1rem;
+    }
+    
+    /* Fantasmas menores */
+    .ghost-svg {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .ghost-left, .ghost-right {
+        position: static;
+        margin: 0 10px;
+    }
+    
+    /* Main com margem ajustada */
+    main {
+        margin-top: 140px;
+        padding: 20px 15px;
+    }
+    
+    /* Footer responsivo */
+    .footer-barbearia {
+        padding: 15px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Smartphones (480px e abaixo) */
+@media (max-width: 480px) {
+    /* Header ainda mais compacto */
+    .header-barbearia {
+        padding: 12px 0 6px 0;
+    }
+    
+    .header-container {
+        padding: 0 10px;
+        gap: 12px;
+    }
+    
+    /* Menu mobile */
+    .menu-barbearia {
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .menu-barbearia li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .menu-barbearia li a {
+        font-size: 1rem;
+        padding: 8px 0;
+        display: block;
+        width: 100%;
+    }
+    
+    /* Fantasmas ocultos em telas muito pequenas */
+    .ghost-icon {
+        display: none;
+    }
+    
+    /* Main mobile */
+    main {
+        margin-top: 180px;
+        padding: 15px 10px;
+    }
+    
+    /* Footer mobile */
+    .footer-barbearia {
+        padding: 12px 8px;
+        font-size: 0.85rem;
+    }
+    
+    .footer-barbearia p {
+        line-height: 1.4;
+        margin: 0;
+    }
+}
+
+/* Telas muito pequenas (320px e abaixo) */
+@media (max-width: 320px) {
+    .header-container {
+        padding: 0 5px;
+    }
+    
+    .menu-barbearia li a {
+        font-size: 0.9rem;
+    }
+    
+    main {
+        padding: 10px 5px;
+        margin-top: 200px;
+    }
+    
+    .footer-barbearia {
+        font-size: 0.8rem;
+        padding: 10px 5px;
+    }
+}
+
+/* Correções gerais para elementos responsivos */
+@media (max-width: 768px) {
+    /* Tabelas responsivas */
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 8px 6px !important;
+    }
+    
+    /* Imagens responsivas */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Containers responsivos */
+    .container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
+    /* Botões responsivos */
+    button, .btn-agendar {
+        width: 100%;
+        margin: 5px 0;
+        padding: 12px 16px;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,151 @@
+<!-- Modal Overlay -->
+<div class="modal-overlay" 
+     [class.active]="isModalOpen" 
+     (click)="closeOnBackdrop($event)">
+  
+  <!-- Modal Container -->
+  <div class="modal-container" 
+       [class.active]="isModalOpen"
+       (click)="$event.stopPropagation()">
+    
+    <!-- Header do Modal -->
+    <div class="modal-header">
+      <div class="logo-container">
+        <img src="https://i.postimg.cc/HspNQM7s/download.jpg" alt="Logo Barbearia do Além" class="logo" />
+        <h1 class="modal-title">Admin do Além</h1>
+        <p class="modal-subtitle">Portal Místico de Administração</p>
+      </div>
+      
+      <button class="close-button" 
+              (click)="closeModal()" 
+              aria-label="Fechar modal"
+              type="button">
+        <span class="close-icon">✕</span>
+      </button>
+    </div>
+
+    <!-- Corpo do Modal -->
+    <div class="modal-body">
+      <!-- Mensagem de Status -->
+      <div *ngIf="mensagem" 
+           class="alert-message"
+           [class.success]="mensagemTipo === 'sucesso'"
+           [class.error]="mensagemTipo === 'erro'"
+           [class.warning]="mensagemTipo === 'warning'">
+        <span class="alert-icon">
+          <span *ngIf="mensagemTipo === 'sucesso'">✅</span>
+          <span *ngIf="mensagemTipo === 'erro'">❌</span>
+          <span *ngIf="mensagemTipo === 'warning'">⚠️</span>
+        </span>
+        {{ mensagem }}
+      </div>
+
+      <!-- Formulário de Login -->
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        
+        <!-- Campo Email -->
+        <div class="form-group">
+          <label for="email" class="form-label">
+            <span class="label-icon">👤</span>
+            Email Administrativo
+          </label>
+          <div class="input-container">
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              class="form-input"
+              [class.error]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+              placeholder="Digite seu email administrativo"
+              autocomplete="email"
+            />
+            <span class="input-decoration">📧</span>
+          </div>
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-text">
+            <span *ngIf="loginForm.get('email')?.errors?.['required']">📧 Email é obrigatório</span>
+            <span *ngIf="loginForm.get('email')?.errors?.['email']">📧 Email inválido</span>
+          </div>
+        </div>
+
+        <!-- Campo Senha -->
+        <div class="form-group">
+          <label for="senha" class="form-label">
+            <span class="label-icon">🔐</span>
+            Senha Mística
+          </label>
+          <div class="input-container">
+            <input
+              id="senha"
+              [type]="mostrarSenha ? 'text' : 'password'"
+              formControlName="senha"
+              class="form-input"
+              [class.error]="loginForm.get('senha')?.invalid && loginForm.get('senha')?.touched"
+              placeholder="Digite sua senha mística"
+              autocomplete="current-password"
+            />
+            <button 
+              type="button" 
+              class="password-toggle"
+              (click)="toggleSenha()"
+              [attr.aria-label]="mostrarSenha ? 'Ocultar senha' : 'Mostrar senha'"
+            >
+              {{ mostrarSenha ? '👁️' : '👁️‍🗨️' }}
+            </button>
+          </div>
+          <div *ngIf="loginForm.get('senha')?.invalid && loginForm.get('senha')?.touched" class="error-text">
+            <span *ngIf="loginForm.get('senha')?.errors?.['required']">🔐 Senha é obrigatória</span>
+            <span *ngIf="loginForm.get('senha')?.errors?.['minlength']">🔐 Mínimo 3 caracteres</span>
+          </div>
+        </div>
+
+        <!-- Credenciais de Desenvolvimento -->
+        <div class="dev-credentials">
+          <p class="credentials-title">� Solicitar Acesso</p>
+          <div class="credentials-list">
+            <span class="credential-item">
+              Solicite seu acesso para nosso mestre das sombras.
+            </span>
+          </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="form-actions">
+          <button 
+            type="button" 
+            class="btn btn-cancel"
+            (click)="closeModal()"
+            [disabled]="carregando">
+            Cancelar
+          </button>
+          
+          <button 
+            type="submit" 
+            class="btn btn-login"
+            [disabled]="loginForm.invalid || carregando">
+            <span *ngIf="carregando" class="loading">
+              <span class="spinner">🌀</span>
+              Autenticando...
+            </span>
+            <span *ngIf="!carregando" class="login-text">
+              <span class="icon">🚪</span>
+              Entrar no Além
+            </span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Footer do Modal -->
+    <div class="modal-footer">
+      <p class="footer-text">
+        <span class="mystical-icon">🎭</span>
+        Sistema protegido por magia antiga
+        <span class="mystical-icon">✨</span>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+    

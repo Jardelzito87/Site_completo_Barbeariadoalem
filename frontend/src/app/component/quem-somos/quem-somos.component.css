@@ -1,0 +1,177 @@
+.quem-somos-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #1a1a1a;
+    color: #c0c0c0;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+.quem-somos-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* QUEM SOMOS - Título principal único */
+.header-section h1 {
+    color: #e74c3c;
+    font-family: 'Creepster', cursive, 'Segoe UI', Tahoma;
+    font-size: 3.2rem;
+    letter-spacing: 2.5px;
+    margin-bottom: 1.2rem;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #b30000, transparent);
+}
+
+.divider-icon {
+    margin: 0 15px;
+    color: #b30000;
+    font-size: 1.5rem;
+    transform: rotate(90deg);
+}
+
+/* QUEM SOMOS - Título secundário único */
+.content-section h2 {
+    color: #f39c12;
+    font-family: 'Creepster', cursive, 'Segoe UI', Tahoma;
+    border-bottom: 2px solid #f39c12;
+    padding-bottom: 0.7rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.8rem;
+    font-size: 2.1rem;
+    letter-spacing: 1.5px;
+}
+
+p {
+    line-height: 1.8;
+    color: #c0c0c0;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.story-box, .mission-box, .vision-box {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1.5rem;
+    border-radius: 5px;
+    border-left: 4px solid #b30000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-box:hover, .mission-box:hover, .vision-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.team-section {
+    margin-top: 3rem;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.member {
+    flex: 1;
+    min-width: 250px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.member:hover {
+    transform: scale(1.05);
+}
+
+.member-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #b30000;
+}
+
+.member h3 {
+    color: #c0c0c0;
+    margin-bottom: 1rem;
+}
+
+.quote-section {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+blockquote {
+    font-style: italic;
+    font-size: 1.5rem;
+    color: #b30000;
+    position: relative;
+    padding: 1rem 2rem;
+}
+
+blockquote::before, blockquote::after {
+    content: '"';
+    font-size: 3rem;
+    position: absolute;
+    opacity: 0.3;
+}
+
+blockquote::before {
+    top: -10px;
+    left: 0;
+}
+
+blockquote::after {
+    bottom: -10px;
+    right: 0;
+}
+
+@media (max-width: 768px) {
+    .team-members {
+        flex-direction: column;
+    }
+    
+    .member {
+        margin-bottom: 1.5rem;
+    }
+}

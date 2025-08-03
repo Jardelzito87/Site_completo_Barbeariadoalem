@@ -1,0 +1,30 @@
+<div class="gallery-container">
+  <h1 class="gallery-title">Galeria de Fotos</h1>
+  <p class="gallery-subtitle">Conheça nossos melhores trabalhos e estilos sobrenaturais</p>
+  
+  <div class="gallery-filter">
+    <button class="filter-btn" [class.active]="categoriaAtual === 'todos' && !servicoSelecionado" (click)="filtrarPorCategoria('todos'); servicoSelecionado = null">Todos</button>
+    <button class="filter-btn" [class.active]="categoriaAtual === 'cortes' && !servicoSelecionado" (click)="filtrarPorCategoria('cortes'); servicoSelecionado = null">Cortes</button>
+    <button class="filter-btn" [class.active]="categoriaAtual === 'barbas' && !servicoSelecionado" (click)="filtrarPorCategoria('barbas'); servicoSelecionado = null">Barbas</button>
+    <button class="filter-btn" [class.active]="categoriaAtual === 'especiais' && !servicoSelecionado" (click)="filtrarPorCategoria('especiais'); servicoSelecionado = null">Especiais</button>
+  </div>
+  
+  <!-- Botões de serviço removidos -->
+  
+  <div class="gallery">
+    <div class="gallery-item" *ngFor="let item of servicoSelecionado ? itensPorServico : itensFiltrados">
+      <div class="gallery-img-container">
+        <img [src]="item.imagem" [alt]="item.titulo">
+      </div>
+      <div class="gallery-info">
+        <h3>{{item.titulo}}</h3>
+        <p>{{item.descricao}}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="gallery-empty" *ngIf="(servicoSelecionado ? itensPorServico : itensFiltrados).length === 0">
+    <p>Nenhum item encontrado {{servicoSelecionado ? 'para este serviço' : 'nesta categoria'}}.</p>
+  </div>
+</div>
+

@@ -1,0 +1,146 @@
+<div class="agendamento-container">
+  <div class="agendamento-header">
+    <h1>Pacto de Agendamento</h1>
+    <div class="divider">
+      <span class="divider-icon">✂</span>
+    </div>
+    <p class="agendamento-subtitle">Escolha o momento para sua transformação sobrenatural</p>
+  </div>
+  
+  <div *ngIf="mensagem" class="mensagem" [ngClass]="mensagemTipo">
+    <div class="mensagem-icon">{{ mensagemTipo === 'sucesso' ? '✓' : '✗' }}</div>
+    <div class="mensagem-texto">{{ mensagem }}</div>
+  </div>
+  
+  <div *ngIf="carregando" class="loading">
+    <div class="loading-icon"></div>
+    <span>Invocando...</span>
+  </div>
+  
+  <form class="agendamento-form" [formGroup]="agendamentoForm" (ngSubmit)="onSubmit()" *ngIf="!carregando">
+    <div class="form-section">
+      <h2>Dados do Mortal</h2>
+      <div class="section-icon">👤</div>
+      
+      <div class="form-group">
+        <label for="nome">Nome Completo (máx. 35 caracteres)</label>
+        <input type="text" id="nome" formControlName="nome" placeholder="Ex: Maria Alice Pereira" 
+               (keypress)="onlyLettersInput($event)" (blur)="verificarNomeDuplicado()" 
+               maxlength="35" [class.error]="duplicataErrors.nome">
+        <small class="form-hint">Digite seu nome completo com pelo menos dois sobrenomes (ex: Maria Silva Santos)</small>
+        <div *ngIf="isFieldInvalid('nome')" class="error-message">
+          {{ getErrorMessage('nome') }}
+        </div>
+        <div *ngIf="duplicataErrors.nome" class="error-message duplicata-error">
+          Este nome já está cadastrado no sistema.
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="telefone">Telefone para Contato</label>
+        <input type="tel" id="telefone" formControlName="telefone" placeholder="(XX) XXXXX-XXXX" 
+               (keypress)="onlyNumbersInput($event)" (blur)="verificarTelefoneDuplicado()" 
+               (input)="onTelefoneInput($event)"
+               maxlength="15" [class.error]="duplicataErrors.telefone">
+        <small class="form-hint">Digite um número de telefone celular válido</small>
+        <div *ngIf="isFieldInvalid('telefone')" class="error-message">
+          {{ getErrorMessage('telefone') }}
+        </div>
+        <div *ngIf="duplicataErrors.telefone" class="error-message duplicata-error">
+          Este telefone já está cadastrado no sistema.
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">E-mail *</label>
+        <input type="email" id="email" formControlName="email" placeholder="seu.email@exemplo.com" 
+               (blur)="verificarEmailDuplicado()" required [class.error]="duplicataErrors.email">
+        <small class="form-hint">Por favor, não esqueça de preencher o email correto!</small>
+        <div *ngIf="isFieldInvalid('email')" class="error-message">
+          {{ getErrorMessage('email') }}
+        </div>
+        <div *ngIf="duplicataErrors.email" class="error-message duplicata-error">
+          Este email já está cadastrado no sistema.
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-section">
+      <h2>Ritual Desejado</h2>
+      <div class="section-icon">🔮</div>
+      
+      <div class="form-group date-time-group">
+        <div class="form-group-half">
+          <label for="data">Data do Ritual</label>
+          <input type="date" id="data" formControlName="data_agendada" [min]="dataMinima" (change)="verificarDomingo($event)">
+          <small class="form-hint domingo-aviso">Escolha uma data a partir de hoje (não atendemos aos domingos)</small>
+          <div *ngIf="isFieldInvalid('data_agendada')" class="error-message">
+            {{ getErrorMessage('data_agendada') }}
+          </div>
+        </div>
+        
+        <div class="form-group-half">
+          <label for="horario">Hora da Invocação</label>
+          <select id="horario" formControlName="hora_agendada">
+            <option value="">Selecione um horário</option>
+            <option value="09:00:00">09:00 - Despertar das Sombras</option>
+            <option value="10:00:00">10:00 - Hora do Crepúsculo</option>
+            <option value="11:00:00">11:00 - Momento Sinistro</option>
+            <option value="14:00:00">14:00 - Eclipse Parcial</option>
+            <option value="15:00:00">15:00 - Hora das Trevas</option>
+            <option value="16:00:00">16:00 - Chamado Noturno</option>
+            <option value="17:00:00">17:00 - Último Suspiro</option>
+          </select>
+          <div *ngIf="isFieldInvalid('hora_agendada')" class="error-message">
+            {{ getErrorMessage('hora_agendada') }}
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="servico">Transformação Desejada</label>
+        <select id="servico" formControlName="servico_id">
+          <option value="">Selecione um serviço</option>
+          <option value="1">Corte Sobrenatural - R$ 45.00</option>
+          <option value="2">Degradê Espectral - R$ 55.00</option>
+          <option value="3">Navalha Demoníaca - R$ 65.00</option>
+          <option value="4">Barba Maldita - R$ 40.00</option>
+          <option value="5">Pacto Completo - R$ 90.00</option>
+          <option value="6">Transformação Sombria - R$ 120.00</option>
+        </select>
+        <div *ngIf="isFieldInvalid('servico_id')" class="error-message">
+          {{ getErrorMessage('servico_id') }}
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="observacoes">Instruções para o Ritual</label>
+        <textarea id="observacoes" formControlName="observacoes" rows="4" placeholder="Alguma instrução especial para seu ritual de transformação?"></textarea>
+      </div>
+    </div>
+    
+    <div class="form-disclaimer">
+      <p>Ao agendar, você concorda em entregar sua aparência às mãos dos mestres do além. Não nos responsabilizamos por possíveis posses demoníacas durante o procedimento.</p>
+      
+      <div *ngIf="agendamentosDoDia.length > 0" class="agendamentos-do-dia">
+        <h4>Agendamentos para esta data:</h4>
+        <div class="agendamento-item" *ngFor="let agendamento of agendamentosDoDia">
+          <span class="horario">{{ agendamento.hora_agendada.substring(0,5) }}</span>
+          <span class="cliente">{{ agendamento.cliente_nome }} (ID: {{ agendamento.cliente_id }})</span>
+          <span class="status" [class]="'status-' + agendamento.status">{{ agendamento.status }}</span>
+        </div>
+      </div>
+      
+      <div *ngIf="agendamentosDoDia.length === 0 && agendamentoForm.get('data_agendada')?.value" class="sem-agendamentos">
+        <p>Nenhum agendamento para esta data.</p>
+      </div>
+      
+      <p class="regras-agendamento" *ngIf="!agendamentoForm.get('data_agendada')?.value">Selecione uma data para ver os agendamentos do dia. Não atendemos aos domingos.</p>
+    </div>
+    
+    <div class="form-buttons">
+      <button type="button" class="btn-reset" (click)="limparFormulario()">Cancelar Ritual</button>
+      <button type="submit" class="btn-submit" [disabled]="dataBloqueada">Selar o Pacto</button>
+    </div>
+  </form>
+</div>

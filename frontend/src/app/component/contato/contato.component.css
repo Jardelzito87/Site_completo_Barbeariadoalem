@@ -1,0 +1,385 @@
+/* ==============================
+   ESTILOS ESPECÍFICOS DO CONTATO
+   ============================== */
+
+/* Informações de contato estilosas */
+.contato-card {
+  max-width: 600px;
+  margin: 30px auto;
+  background: linear-gradient(135deg, rgba(24, 24, 24, 0.95) 0%, rgba(40, 0, 0, 0.9) 100%);
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(179, 0, 0, 0.3);
+  overflow: hidden;
+  border: 2px solid #b30000;
+  position: relative;
+}
+
+.contato-card::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(ellipse at center, rgba(179, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.home-contato {
+  position: relative;
+  padding: 140px 0 20px 0; /* ✅ Aumentado padding-top para compensar título fixo (100px header + 40px título aproximadamente) */
+}
+
+.home-contato::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(179, 0, 0, 0) 0%, rgba(179, 0, 0, 0.8) 50%, rgba(179, 0, 0, 0) 100%);
+}
+
+.contato-info {
+  padding: 20px;
+}
+
+.contato-row {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(179, 0, 0, 0.2);
+}
+
+.contato-row:last-child {
+  border-bottom: none;
+}
+
+/* CONTATO - Título estiloso único */
+.contato-titulo-estiloso {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: #ff0000;
+  font-size: 2.5rem;
+  margin: 0;
+  letter-spacing: 0.8px;
+  background: #181818;
+  padding: 8px 0 6px 0;
+  border-radius: 0;
+  border: 1px solid rgba(255, 0, 0, 0.7);
+  border-top: none;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  overflow: hidden;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.contato-titulo-estiloso::before {
+  display: none;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Imagens do contato lado a lado */
+.contato-imagens {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+  margin: 32px 0 24px 0;
+}
+
+.contato-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3), 0 0 10px rgba(179, 0, 0, 0.2);
+  border: 3px solid #b30000;
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.contato-img:hover {
+  transform: scale(1.07) rotate(-2deg);
+  box-shadow: 0 8px 30px rgba(255,0,0,0.3), 0 0 15px rgba(179, 0, 0, 0.4);
+  filter: brightness(1.1) contrast(1.2) saturate(1.1);
+  border-color: #ff0000;
+}
+
+/* Animação de pulse para ícones */
+@keyframes pulseIcon {
+  0% { text-shadow: 0 2px 8px #000, 0 0 10px rgba(179, 0, 0, 0.5); }
+  50% { text-shadow: 0 2px 8px #000, 0 0 15px rgba(179, 0, 0, 0.8); }
+  100% { text-shadow: 0 2px 8px #000, 0 0 10px rgba(179, 0, 0, 0.5); }
+}
+
+/* ==============================
+   ESTILOS ORIGINAIS DO FORMULÁRIO
+   ============================== */
+
+.grupoContato {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #181818;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(179, 0, 0, 0.3);
+    border: 2px solid #b30000;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #d4af37;
+    font-family: 'Creepster', cursive;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 4px #000;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #b30000;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #222;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(179, 0, 0, 0.2);
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 1rem;
+}
+
+.btn-primary {
+    background-color: #b30000;
+    color: white;
+    text-shadow: 0 1px 3px #000;
+    box-shadow: 0 2px 8px rgba(179, 0, 0, 0.4);
+}
+
+.btn-warning {
+    background-color: #ffe600;
+    color: #222;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(255, 230, 0, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: #8a0000;
+    transform: scale(1.05);
+}
+
+.btn-warning:hover {
+    background-color: #d9c400;
+    transform: scale(1.05);
+}
+
+/* Estilos para contato */
+.contato-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(24, 24, 24, 0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(179, 0, 0, 0.3);
+}
+
+.contato-table td {
+    padding: 15px;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(179, 0, 0, 0.3);
+}
+
+/* Container para as seções lado a lado */
+.contato-horario-pagamento {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px 15px;
+    border-bottom: 1px solid rgba(179, 0, 0, 0.3);
+}
+
+.contato-horario-pagamento .contato-secao {
+    flex: 1;
+    text-align: center;
+    min-width: 0; /* Permite que o flex shrink funcione corretamente */
+}
+
+.contato-icon {
+    font-size: 1.5rem;
+    color: #d4af37;
+    width: 30px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.contato-text {
+    padding-right: 15px;
+}
+
+.contato-label {
+  /* Remove qualquer brilho ou sombra do label */
+  text-shadow: none !important;
+  color: #d4af37;
+  font-weight: bold;
+}
+
+.contato-value {
+  color: #fff;
+  text-shadow: none !important;
+  font-weight: 500;
+}
+
+.contato-value {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.contato-center {
+    text-align: center;
+}
+
+.contato-center .contato-icon,
+.contato-center .contato-text {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+}
+
+/* Estilos para formas de pagamento */
+.payment-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+/* Ajuste para quando as formas de pagamento estão lado a lado com horário */
+.contato-secao .payment-methods {
+    gap: 5px;
+    margin-top: 8px;
+    flex-wrap: nowrap; /* Impede quebra de linha */
+}
+
+.contato-secao .payment-method {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    white-space: nowrap; /* Impede quebra do texto */
+    flex-shrink: 1; /* Permite que os itens diminuam se necessário */
+}
+
+.payment-method {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(179, 0, 0, 0.8) 0%, rgba(100, 0, 0, 0.9) 100%);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 15px rgba(179, 0, 0, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.payment-method i {
+    margin-right: 8px;
+    color: #d4af37;
+}
+
+.payment-method:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(179, 0, 0, 0.4);
+}
+/* Estilos adicionais para formas de pagamento */
+.payment-methods {
+  margin-top: 15px;
+  gap: 15px;
+}
+
+.payment-method {
+  background: linear-gradient(135deg, rgba(179, 0, 0, 0.8) 0%, rgba(80, 0, 0, 0.9) 100%);
+  padding: 8px 18px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 15px rgba(179, 0, 0, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.payment-method::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(ellipse at center, rgba(255, 230, 0, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+}
+
+.payment-method:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 25px rgba(179, 0, 0, 0.5);
+}
+
+.payment-method i {
+  color: #d4af37;
+  font-size: 1.1rem;
+}
+
+/* Efeito especial para "Sua alma" */
+.payment-method:nth-child(3) {
+  background: linear-gradient(135deg, rgba(100, 0, 0, 0.9) 0%, rgba(40, 0, 0, 1) 100%);
+  border: 1px solid rgba(255, 0, 0, 0.5);
+  animation: pulseSoul 3s infinite;
+}
+
+.payment-method:nth-child(3) i {
+  animation: flamePulse 2s infinite;
+}
+
+@keyframes pulseSoul {
+  0% { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 15px rgba(179, 0, 0, 0.3); }
+  50% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 0, 0, 0.6); }
+  100% { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 15px rgba(179, 0, 0, 0.3); }
+}
+
+@keyframes flamePulse {
+  0% { }
+  50% { }
+  100% { }
+}
+
+/* ============================
+   ATUALIZAÇÃO: Título "Contato do Além" mais sutil aplicado
+   Data: 21/07/2025 - Fonte simples, cor dourada suave, sem brilho
+   ============================= */

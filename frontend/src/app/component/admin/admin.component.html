@@ -1,0 +1,438 @@
+<div class="admin-container">
+  <!-- Cabeçalho com informações do usuário -->
+  <div class="user-header">
+    <div class="user-info">
+      <span class="welcome-text">
+        <img src="https://i.postimg.cc/HspNQM7s/download.jpg" alt="Logo Barbearia" class="logo-admin">
+        Bem-vindo, <strong>{{ adminLogado?.nome || 'Admin do Além' }}</strong>!
+      </span>
+    </div>
+    <div class="user-menu">
+      <button 
+        class="user-button" 
+        (click)="toggleMenuUsuario()"
+        [attr.aria-expanded]="exibindoMenuUsuario"
+      >
+        <span class="user-avatar">👤</span>
+        <span class="user-name">{{ adminLogado?.nome || 'Admin' }}</span>
+        <span class="dropdown-arrow" [class.rotated]="exibindoMenuUsuario">▼</span>
+      </button>
+      
+      <div class="user-dropdown" [class.active]="exibindoMenuUsuario">
+        <div class="dropdown-item">
+          <span class="item-icon">📧</span>
+          <span>{{ adminLogado?.email }}</span>
+        </div>
+        <div class="dropdown-divider"></div>
+        <button class="dropdown-item logout-btn" (click)="logout()">
+          <span class="item-icon">🚪</span>
+          <span>Sair</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-header">
+    <h1>Painel de Controle do Além</h1>
+    <div class="divider">
+      <span class="divider-icon">⚡</span>
+    </div>
+    <p class="admin-subtitle">Gerencie os agendamentos e bloqueie datas</p>
+  </div>
+  
+  <div *ngIf="mensagem" class="mensagem" [ngClass]="mensagemTipo">
+    <div class="mensagem-icon">{{ mensagemTipo === 'sucesso' ? '✓' : '✗' }}</div>
+    <div class="mensagem-texto">{{ mensagem }}</div>
+  </div>
+  
+  <div *ngIf="carregando" class="loading">
+    <div class="loading-icon"></div>
+    <span>Invocando...</span>
+  </div>
+  
+  <div class="admin-content" *ngIf="!carregando">
+    <div class="admin-section bloqueio-section">
+      <div class="bloqueio-container">
+        <div class="bloqueio-form-container">
+          <h2>Bloquear Data</h2>
+          <form [formGroup]="bloqueioForm" (ngSubmit)="bloquearData()">
+            <div class="form-group">
+              <label for="data">Data a Bloquear</label>
+              <input type="date" id="data" formControlName="data" [min]="dataHoje">
+            </div>
+            
+            <div class="form-group">
+              <label for="motivo">Motivo (opcional)</label>
+              <input type="text" id="motivo" formControlName="motivo" placeholder="Ex: Feriado, Manutenção">
+            </div>
+            
+            <button type="submit" [disabled]="bloqueioForm.invalid">Bloquear Data</button>
+          </form>
+          
+          <div class="datas-bloqueadas" *ngIf="datasBloqueadas.length > 0">
+            <h3>Datas Bloqueadas</h3>
+            <div class="datas-bloqueadas-lista">
+              <div class="data-bloqueada" *ngFor="let dataBloqueada of datasBloqueadas">
+                <div class="data-bloqueada-info">
+                  <span class="data-bloqueada-valor">{{ formatarData(dataBloqueada.data) }}</span>
+                  <span class="data-bloqueada-motivo" *ngIf="dataBloqueada.motivo">{{ dataBloqueada.motivo }}</span>
+                </div>
+                <button class="btn-desbloquear" (click)="desbloquearData(dataBloqueada.data)">
+                  <span class="btn-icon">🔓</span> Desbloquear
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="quadro-avisos">
+          <h3>Quadro de Avisos</h3>
+          
+          <!-- Datas Bloqueadas no Quadro de Avisos -->
+          <div class="aviso datas-bloqueadas-aviso" *ngIf="datasBloqueadas.length > 0">
+            <div class="aviso-icon">🚫</div>
+            <div class="aviso-content">
+              <h4>Datas Bloqueadas</h4>
+              <div class="datas-bloqueadas-chips">
+                <div class="data-bloqueada-chip-container" *ngFor="let dataBloqueada of datasBloqueadas">
+                  <span class="data-bloqueada-chip">{{ formatarData(dataBloqueada.data) }}</span>
+                  <span class="data-bloqueada-chip-motivo" *ngIf="dataBloqueada.motivo">{{ dataBloqueada.motivo }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mensagem quando não há datas bloqueadas -->
+          <div class="aviso" *ngIf="datasBloqueadas.length === 0">
+            <div class="aviso-icon">✅</div>
+            <div class="aviso-content">
+              <h4>Sem Bloqueios</h4>
+              <p>Não há datas bloqueadas no momento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="admin-section">
+      <div class="historico-header-container">
+        <div class="historico-title-section">
+          <h2>Histórico de Alterações</h2>
+          <button class="toggle-button" (click)="toggleMostrarLogs()">
+            {{ mostrarLogs ? 'Ocultar Histórico' : 'Mostrar Histórico' }}
+          </button>
+        </div>
+        
+        <!-- Contador de Cortes por Dia -->
+        <div class="contador-cortes-container">
+          <h3 class="contador-titulo">Relatório de Cortes por Período</h3>
+          <div class="contador-cortes-cards">
+            <div class="contador-card hoje" [attr.data-zero]="cortesHoje === 0" title="Cortes realizados apenas hoje">
+              <div class="contador-icon">🗓️</div>
+              <div class="contador-info">
+                <span class="contador-numero">{{ cortesHoje }}</span>
+                <span class="contador-label">Hoje</span>
+              </div>
+            </div>
+            
+            <div class="contador-card antecipados" [attr.data-zero]="cortesAntecipados === 0" title="Agendamentos que foram antecipados e já realizados">
+              <div class="contador-icon">⚡</div>
+              <div class="contador-info">
+                <span class="contador-numero">{{ cortesAntecipados }}</span>
+                <span class="contador-label">Antecipados</span>
+              </div>
+            </div>
+            
+            <div class="contador-card semana" [attr.data-zero]="cortesSemanaPassada === 0" title="Cortes realizados na semana passada">
+              <div class="contador-icon">�</div>
+              <div class="contador-info">
+                <span class="contador-numero">{{ cortesSemanaPassada }}</span>
+                <span class="contador-label">Semana Passada</span>
+              </div>
+            </div>
+            
+            <div class="contador-card mes" [attr.data-zero]="cortesMes === 0" title="Total de cortes concluídos (incluindo antecipações)">
+              <div class="contador-icon">🏆</div>
+              <div class="contador-info">
+                <span class="contador-numero">{{ cortesMes }}</span>
+                <span class="contador-label">Concluídos</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="resumo-financeiro">
+            <div class="receita-estimada">
+              <span class="receita-label">💰 Receita Estimada (Mês):</span>
+              <span class="receita-valor">R$ {{ receitaEstimadaMes | number:'1.2-2' }}</span>
+            </div>
+            
+            <!-- Resumo consolidado dos cortes -->
+            <div style="margin-top: 12px; padding: 10px; background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px;">
+              <div style="font-size: 0.8rem; color: #e2e8f0; text-align: center; margin-bottom: 8px;">
+                <strong>� Resumo Geral de Cortes</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem;">
+                <span style="color: #bbb;">Total de Agendamentos Concluídos:</span>
+                <span style="color: #27ae60; font-weight: bold;">{{ contadorFeitos }}</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; margin-top: 4px;">
+                <span style="color: #bbb;">Cortes Finalizados (Total):</span>
+                <span style="color: #b30000; font-weight: bold;">{{ cortesMes }}</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; margin-top: 4px;">
+                <span style="color: #bbb;">Total de Cortes Cancelados:</span>
+                <span class="resumo-valor cancelados">{{ totalCancelados }}</span>
+              </div>
+              <div *ngIf="contadorFeitos === cortesMes" style="font-size: 0.7rem; color: #27ae60; margin-top: 6px; text-align: center; font-style: italic;">
+                ✅ Todos os agendamentos foram processados
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div *ngIf="mostrarLogs" class="logs-container">
+        <!-- Filtros de Data -->
+        <div class="logs-filtros">
+          <div class="filtro-data-container">
+            <div class="form-group">
+              <label for="dataInicio">Data Início:</label>
+              <input 
+                type="date" 
+                id="dataInicio" 
+                [(ngModel)]="filtroDataInicio"
+                (change)="aplicarFiltroData()"
+                class="filtro-data-input"
+              >
+            </div>
+            <div class="form-group">
+              <label for="dataFim">Data Fim:</label>
+              <input 
+                type="date" 
+                id="dataFim" 
+                [(ngModel)]="filtroDataFim"
+                (change)="aplicarFiltroData()"
+                class="filtro-data-input"
+              >
+            </div>
+            <button 
+              class="btn-limpar-filtro" 
+              (click)="limparFiltroData()"
+              title="Limpar filtros de data"
+            >
+              <span class="btn-icon">🗑️</span>
+              Limpar
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="carregandoLogs" class="loading-container">
+          <div class="loading-icon"></div>
+          <span>Carregando histórico...</span>
+        </div>
+
+        <div *ngIf="!carregandoLogs && logsAgendamentosFiltrados.length === 0" class="empty-state">
+          <p>Nenhum registro de alteração encontrado</p>
+        </div>
+        
+        <table *ngIf="!carregandoLogs && logsAgendamentosFiltrados.length > 0" class="logs-table">
+          <thead>
+            <tr>
+              <th>Data/Hora</th>
+              <th>Cliente</th>
+              <th>Agendamento</th>
+              <th>Alteração</th>
+              <th>Alterado por</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let log of logsAgendamentosFiltrados">
+              <td>{{ log.criado_em | date:'dd/MM/yyyy HH:mm' }}</td>
+              <td>{{ log.cliente_nome }}</td>
+              <td>{{ formatarData(log.data_agendada) }} {{ formatarHora(log.hora_agendada) }}</td>
+              <td>
+                <span class="status-badge" [ngClass]="getStatusClass(log.status_anterior || '')">{{ getStatusLabel(log.status_anterior || '-') }}</span>
+                <span class="status-arrow">→</span>
+                <span class="status-badge" [ngClass]="getStatusClass(log.status_novo)">{{ getStatusLabel(log.status_novo) }}</span>
+              </td>
+              <td>{{ log.alterado_por }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class="admin-section">
+      <h2>Status dos Agendamentos</h2>
+      <div class="status-counters">
+        <div class="counter pendente">
+          <span class="counter-number">{{ contadorPendentes }}</span>
+          <span class="counter-label">Pendentes</span>
+        </div>
+        <div class="counter confirmado">
+          <span class="counter-number">{{ contadorConfirmados }}</span>
+          <span class="counter-label">Confirmados</span>
+        </div>
+        <div class="counter concluido" title="Total de agendamentos finalizados (todos os períodos)">
+          <span class="counter-number">{{ contadorFeitos }}</span>
+          <span class="counter-label">Concluídos</span>
+          <div style="font-size: 0.7rem; color: rgba(255,255,255,0.7); margin-top: 4px;">
+            (Total Geral)
+          </div>
+        </div>
+        <div class="counter cancelado">
+          <span class="counter-number">{{ contadorCancelados }}</span>
+          <span class="counter-label">Cancelados</span>
+        </div>
+      </div>
+      
+      <div class="clientes-controls">
+        <button class="toggle-button" (click)="toggleMostrarClientes()">
+          {{ mostrarClientes ? 'Ocultar Clientes' : 'Mostrar Clientes' }}
+        </button>
+        <button class="refresh-button" (click)="recarregarClientes()" [disabled]="carregandoClientes">
+          🔄 Atualizar
+        </button>
+      </div>
+      
+      <div *ngIf="mostrarClientes" class="clientes-container">
+        <div *ngIf="carregandoClientes" class="loading-container">
+          <div class="loading-icon"></div>
+          <span>Carregando clientes...</span>
+        </div>
+        
+        <div *ngIf="!carregandoClientes && clientes.length === 0" class="empty-state">
+          <p>Nenhum cliente cadastrado</p>
+        </div>
+        
+        <div *ngIf="!carregandoClientes && clientes.length > 0" class="clientes-info">
+          <p><strong>Total de clientes cadastrados:</strong> {{ clientes.length }}</p>
+        </div>
+        
+        <table *ngIf="!carregandoClientes && clientes.length > 0" class="clientes-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Telefone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cliente of clientes; trackBy: trackByClienteId">
+              <td>{{ cliente.id }}</td>
+              <td>{{ cliente.nome }}</td>
+              <td>{{ cliente.email }}</td>
+              <td>{{ cliente.telefone }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class="admin-section">
+      <h2>Agendamentos</h2>
+      
+      <div class="filtros-container">
+        <button 
+          [ngClass]="{'filtro-ativo': filtroAtual === 'todos'}"
+          (click)="aplicarFiltro('todos')">Todos</button>
+        <button 
+          [ngClass]="{'filtro-ativo': filtroAtual === 'pendentes'}"
+          (click)="aplicarFiltro('pendentes')">Pendentes</button>
+        <button 
+          [ngClass]="{'filtro-ativo': filtroAtual === 'confirmados'}"
+          (click)="aplicarFiltro('confirmados')">Confirmados</button>
+        <button 
+          [ngClass]="{'filtro-ativo': filtroAtual === 'feitos'}"
+          (click)="aplicarFiltro('feitos')">Feitos</button>
+        <button 
+          [ngClass]="{'filtro-ativo': filtroAtual === 'cancelados'}"
+          (click)="aplicarFiltro('cancelados')">Cancelados</button>
+      </div>
+      
+      <div *ngIf="agendamentosFiltrados.length === 0" class="empty-state">
+        <p>Nenhum agendamento encontrado</p>
+      </div>
+      
+      <div *ngIf="agendamentosFiltrados.length > 0" class="agendamentos-list">
+        <div class="agendamento-card" *ngFor="let agendamento of agendamentosFiltrados">
+          <div class="agendamento-header" [ngClass]="getStatusClass(agendamento.status || '')">
+            <div class="agendamento-header-left">
+              <span class="agendamento-id">#{{ agendamento.id }}</span>
+              <span class="agendamento-data">{{ formatarData(agendamento.data_agendada) }} - {{ formatarHora(agendamento.hora_agendada) }}</span>
+            </div>
+            <div class="agendamento-status">{{ getStatusLabel(agendamento.status || '') }}</div>
+          </div>
+          
+          <div class="agendamento-body">
+            <div class="agendamento-info">
+              <div class="info-section cliente-info">
+                <h3>Informações do Cliente</h3>
+                <div class="info-content">
+                  <p><strong>ID:</strong> <span>{{ agendamento.cliente_id }}</span></p>
+                  <p><strong>Nome:</strong> <span>{{ agendamento.cliente_nome || 'Cliente #' + agendamento.cliente_id }}</span></p>
+                  <p><strong>Email:</strong> <span>{{ agendamento.cliente_email || 'N/A' }}</span></p>
+                  <p><strong>Telefone:</strong> <span>{{ agendamento.cliente_telefone || 'N/A' }}</span></p>
+                </div>
+              </div>
+              
+              <div class="info-section servico-info">
+                <h3>Serviço Agendado</h3>
+                <div class="info-content">
+                  <p><strong>Serviço:</strong> <span>{{ agendamento.servico_nome || getNomeServico(agendamento.servico_id) }}</span></p>
+                  <p><strong>Preço:</strong> <span>R$ {{ getPrecoServico(agendamento.servico_id).toFixed(2) }}</span></p>
+                  <p><strong>Data:</strong> <span>{{ formatarData(agendamento.data_agendada) }}</span></p>
+                  <p><strong>Horário:</strong> <span>{{ formatarHora(agendamento.hora_agendada) }}</span></p>
+                  <p *ngIf="agendamento.observacoes"><strong>Observações:</strong> <span>{{ agendamento.observacoes }}</span></p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="agendamento-actions">
+              <button *ngIf="agendamento.status === 'pendente'" 
+                      (click)="atualizarStatus(agendamento, 'confirmado')" 
+                      class="btn-confirm">
+                <span class="btn-icon">✓</span> Confirmar
+              </button>
+              
+              <button *ngIf="agendamento.status === 'pendente' || agendamento.status === 'confirmado'" 
+                      (click)="atualizarStatus(agendamento, 'concluido')" 
+                      class="btn-complete">
+                <span class="btn-icon">✅</span> Feito
+              </button>
+              
+              <button *ngIf="agendamento.status === 'confirmado'" 
+                      (click)="atualizarStatus(agendamento, 'não compareceu')" 
+                      class="btn-no-show">
+                <span class="btn-icon">❌</span> Faltou
+              </button>
+              
+              <button *ngIf="agendamento.status !== 'cancelado' && agendamento.status !== 'concluido' && agendamento.status !== 'não compareceu'" 
+                      (click)="atualizarStatus(agendamento, 'cancelado')" 
+                      class="btn-cancel">
+                <span class="btn-icon">🗑️</span> Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Seção Administrativa -->
+    <div class="admin-section admin-management-section">
+      <h2>🔧 Administração do Sistema</h2>
+      <div class="admin-tools">
+        <button (click)="mostrarGerenciarAdmins = !mostrarGerenciarAdmins" class="btn-admin-tool">
+          <span class="tool-icon">🔐</span>
+          <span class="tool-text">{{ mostrarGerenciarAdmins ? 'Ocultar Gerenciamento' : 'Gerenciar Administradores' }}</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Seção Gerenciar Administradores -->
+    <div *ngIf="mostrarGerenciarAdmins" class="admin-section">
+      <app-gerenciar-admins></app-gerenciar-admins>
+    </div>
+  </div>
+</div>

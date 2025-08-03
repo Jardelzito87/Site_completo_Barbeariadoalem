@@ -1,0 +1,87 @@
+/* Rodapé fixo na parte inferior */
+.footer-barbearia {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  z-index: 100;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+}
+
+/* Adiciona espaço no final do main para o rodapé fixo */
+main {
+  padding-bottom: 80px; /* Espaço para o rodapé fixo */
+}
+
+/* Media queries para o app component */
+@media (max-width: 768px) {
+  .footer-barbearia {
+    padding: 0.8rem 0;
+    font-size: 0.9rem;
+  }
+  
+  main {
+    padding-bottom: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-barbearia {
+    padding: 0.6rem 0;
+    font-size: 0.85rem;
+  }
+  
+  .footer-barbearia p {
+    margin: 0;
+    line-height: 1.3;
+  }
+  
+  main {
+    padding-bottom: 60px;
+  }
+}
+/* ==============================
+   ESTILOS DO COMPONENTE PRINCIPAL
+   ============================== */
+
+/* Títulos principais - Estilo padrão */
+h1 {
+    color: #333; /* Cor escura para contraste */
+    margin-bottom: 1.5rem; /* Espaço abaixo do título */
+}
+
+/* Container genérico - Centralização de conteúdo */
+.container {
+    max-width: 1000px; /* Largura máxima menor que main */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* CSS global para responsividade */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* Previne overflow horizontal */
+.container, .home-container, .apresentacao-barbearia {
+    max-width: 100%;
+    overflow-x: hidden;
+}
