@@ -12,9 +12,9 @@ export const environment = {
   // URLs importantes
   urls: {
     backend: 'https://projetobarbeariadoalem-o-3.onrender.com',
-    frontend: 'https://barbearia-do-alem-ltda.github.io/site-barbeariadoalem',
-    login: 'https://barbearia-do-alem-ltda.github.io/site-barbeariadoalem/login',
-    admin: 'https://barbearia-do-alem-ltda.github.io/site-barbeariadoalem/admin'
+    frontend: 'https://jardelzito87.github.io/Site_completo_Barbeariadoalem',
+    login: 'https://jardelzito87.github.io/Site_completo_Barbeariadoalem/login',
+    admin: 'https://jardelzito87.github.io/Site_completo_Barbeariadoalem/admin'
   },
   
   // Configurações de banco

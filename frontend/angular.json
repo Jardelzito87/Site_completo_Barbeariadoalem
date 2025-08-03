@@ -46,7 +46,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/site-barbeariadoalem/"
+              "baseHref": "/Site_completo_Barbeariadoalem/"
             },
             "development": {
               "optimization": false,
