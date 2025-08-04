@@ -1,29 +1,49 @@
+<!-- ==============================
+     TEMPLATE DO PAINEL ADMINISTRATIVO
+     Interface completa para gerenciamento da barbearia
+     ============================== -->
 <div class="admin-container">
+  <!-- ==============================
+       CABEÇALHO DO USUÁRIO LOGADO
+       Informações e menu do administrador
+       ============================== -->
   <!-- Cabeçalho com informações do usuário -->
   <div class="user-header">
+    <!-- Informações do admin logado -->
     <div class="user-info">
       <span class="welcome-text">
+        <!-- Logo da barbearia no header admin -->
         <img src="https://i.postimg.cc/HspNQM7s/download.jpg" alt="Logo Barbearia" class="logo-admin">
+        <!-- Mensagem de boas-vindas com nome dinâmico -->
         Bem-vindo, <strong>{{ adminLogado?.nome || 'Admin do Além' }}</strong>!
       </span>
     </div>
+    <!-- Menu dropdown do usuário -->
     <div class="user-menu">
+      <!-- Botão que abre/fecha o menu dropdown -->
       <button 
         class="user-button" 
         (click)="toggleMenuUsuario()"
         [attr.aria-expanded]="exibindoMenuUsuario"
       >
+        <!-- Avatar do usuário -->
         <span class="user-avatar">👤</span>
+        <!-- Nome do usuário logado -->
         <span class="user-name">{{ adminLogado?.nome || 'Admin' }}</span>
+        <!-- Seta que indica se o menu está aberto -->
         <span class="dropdown-arrow" [class.rotated]="exibindoMenuUsuario">▼</span>
       </button>
       
+      <!-- Menu dropdown com opções do usuário -->
       <div class="user-dropdown" [class.active]="exibindoMenuUsuario">
+        <!-- Item com email do usuário (apenas informação) -->
         <div class="dropdown-item">
           <span class="item-icon">📧</span>
           <span>{{ adminLogado?.email }}</span>
         </div>
+        <!-- Divisor visual -->
         <div class="dropdown-divider"></div>
+        <!-- Botão de logout -->
         <button class="dropdown-item logout-btn" (click)="logout()">
           <span class="item-icon">🚪</span>
           <span>Sair</span>

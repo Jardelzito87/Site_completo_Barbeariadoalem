@@ -1,19 +1,44 @@
+<!-- ==============================
+     TEMPLATE DO FORMULÁRIO DE AGENDAMENTO
+     Formulário completo para agendamento de serviços
+     ============================== -->
 <div class="agendamento-container">
+  <!-- ==============================
+       CABEÇALHO DO AGENDAMENTO
+       Título e descrição da página
+       ============================== -->
   <div class="agendamento-header">
+    <!-- Título principal temático -->
     <h1>Pacto de Agendamento</h1>
+    <!-- Divisor decorativo -->
     <div class="divider">
       <span class="divider-icon">✂</span>
     </div>
+    <!-- Subtítulo explicativo -->
     <p class="agendamento-subtitle">Escolha o momento para sua transformação sobrenatural</p>
   </div>
   
+  <!-- ==============================
+       MENSAGENS DE FEEDBACK
+       Exibe mensagens de sucesso ou erro
+       ============================== -->
+  <!-- Mensagem condicional baseada no tipo -->
   <div *ngIf="mensagem" class="mensagem" [ngClass]="mensagemTipo">
+    <!-- Ícone dinâmico baseado no tipo de mensagem -->
     <div class="mensagem-icon">{{ mensagemTipo === 'sucesso' ? '✓' : '✗' }}</div>
+    <!-- Texto da mensagem -->
     <div class="mensagem-texto">{{ mensagem }}</div>
   </div>
   
+  <!-- ==============================
+       INDICADOR DE CARREGAMENTO
+       Exibido durante operações assíncronas
+       ============================== -->
+  <!-- Loading com animação e texto temático -->
   <div *ngIf="carregando" class="loading">
+    <!-- Spinner animado -->
     <div class="loading-icon"></div>
+    <!-- Texto temático de carregamento -->
     <span>Invocando...</span>
   </div>
   

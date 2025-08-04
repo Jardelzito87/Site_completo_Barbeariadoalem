@@ -1,18 +1,39 @@
-<!-- Modal Overlay -->
+<!-- ==============================
+     TEMPLATE DO MODAL DE LOGIN
+     Modal para autenticação de administradores
+     ============================== -->
+
+<!-- ==============================
+     OVERLAY DO MODAL
+     Camada que cobre toda a tela
+     ============================== -->
+<!-- Overlay que escurece o fundo quando modal está aberto -->
 <div class="modal-overlay" 
      [class.active]="isModalOpen" 
      (click)="closeOnBackdrop($event)">
   
-  <!-- Modal Container -->
+  <!-- ==============================
+       CONTAINER DO MODAL
+       Caixa principal do modal
+       ============================== -->
+  <!-- Container principal do modal -->
   <div class="modal-container" 
        [class.active]="isModalOpen"
        (click)="$event.stopPropagation()">
     
+    <!-- ==============================
+         HEADER DO MODAL
+         Cabeçalho com logo e título
+         ============================== -->
     <!-- Header do Modal -->
     <div class="modal-header">
+      <!-- Container do logo e títulos -->
       <div class="logo-container">
+        <!-- Logo da barbearia -->
         <img src="https://i.postimg.cc/HspNQM7s/download.jpg" alt="Logo Barbearia do Além" class="logo" />
+        <!-- Título principal -->
         <h1 class="modal-title">Admin do Além</h1>
+        <!-- Subtítulo temático -->
         <p class="modal-subtitle">Portal Místico de Administração</p>
       </div>
       

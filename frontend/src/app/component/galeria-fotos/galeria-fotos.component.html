@@ -1,28 +1,57 @@
+<!-- ==============================
+     TEMPLATE DA GALERIA DE FOTOS
+     Exibição dos trabalhos da barbearia com filtros
+     ============================== -->
 <div class="gallery-container">
+  <!-- Título principal da galeria -->
   <h1 class="gallery-title">Galeria de Fotos</h1>
+  <!-- Subtítulo explicativo -->
   <p class="gallery-subtitle">Conheça nossos melhores trabalhos e estilos sobrenaturais</p>
   
+  <!-- ==============================
+       FILTROS DE CATEGORIA
+       Botões para filtrar fotos por categoria
+       ============================== -->
   <div class="gallery-filter">
+    <!-- Botão para mostrar todas as fotos -->
     <button class="filter-btn" [class.active]="categoriaAtual === 'todos' && !servicoSelecionado" (click)="filtrarPorCategoria('todos'); servicoSelecionado = null">Todos</button>
+    <!-- Botão para filtrar apenas cortes -->
     <button class="filter-btn" [class.active]="categoriaAtual === 'cortes' && !servicoSelecionado" (click)="filtrarPorCategoria('cortes'); servicoSelecionado = null">Cortes</button>
+    <!-- Botão para filtrar apenas barbas -->
     <button class="filter-btn" [class.active]="categoriaAtual === 'barbas' && !servicoSelecionado" (click)="filtrarPorCategoria('barbas'); servicoSelecionado = null">Barbas</button>
+    <!-- Botão para filtrar serviços especiais -->
     <button class="filter-btn" [class.active]="categoriaAtual === 'especiais' && !servicoSelecionado" (click)="filtrarPorCategoria('especiais'); servicoSelecionado = null">Especiais</button>
   </div>
   
   <!-- Botões de serviço removidos -->
   
+  <!-- ==============================
+       GRID DE FOTOS
+       Layout responsivo com as fotos dos trabalhos
+       ============================== -->
   <div class="gallery">
+    <!-- Loop pelos itens filtrados ou por serviço -->
     <div class="gallery-item" *ngFor="let item of servicoSelecionado ? itensPorServico : itensFiltrados">
+      <!-- Container da imagem -->
       <div class="gallery-img-container">
+        <!-- Imagem do trabalho -->
         <img [src]="item.imagem" [alt]="item.titulo">
       </div>
+      <!-- Informações do trabalho -->
       <div class="gallery-info">
+        <!-- Título do trabalho -->
         <h3>{{item.titulo}}</h3>
+        <!-- Descrição do trabalho -->
         <p>{{item.descricao}}</p>
       </div>
     </div>
   </div>
   
+  <!-- ==============================
+       ESTADO VAZIO
+       Mensagem quando não há itens para exibir
+       ============================== -->
+  <!-- Mensagem exibida quando não há fotos para mostrar -->
   <div class="gallery-empty" *ngIf="(servicoSelecionado ? itensPorServico : itensFiltrados).length === 0">
     <p>Nenhum item encontrado {{servicoSelecionado ? 'para este serviço' : 'nesta categoria'}}.</p>
   </div>
