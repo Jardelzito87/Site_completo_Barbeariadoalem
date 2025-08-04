@@ -1,17 +1,22 @@
 /* ==============================
    ESTILOS ESPECÍFICOS DO CONTATO
+   Estilos exclusivos para a página de contato
    ============================== */
 
-/* Informações de contato estilosas */
+/* ==============================
+   CARD PRINCIPAL DE CONTATO
+   Container estilizado para informações de contato
+   ============================== */
+/* Card principal com gradiente temático */
 .contato-card {
-  max-width: 600px;
-  margin: 30px auto;
-  background: linear-gradient(135deg, rgba(24, 24, 24, 0.95) 0%, rgba(40, 0, 0, 0.9) 100%);
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(179, 0, 0, 0.3);
-  overflow: hidden;
-  border: 2px solid #b30000;
-  position: relative;
+  max-width: 600px; /* Largura máxima para boa legibilidade */
+  margin: 30px auto; /* Centraliza com margem vertical */
+  background: linear-gradient(135deg, rgba(24, 24, 24, 0.95) 0%, rgba(40, 0, 0, 0.9) 100%); /* Gradiente escuro para vermelho */
+  border-radius: 15px; /* Bordas bem arredondadas */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(179, 0, 0, 0.3); /* Dupla sombra: preta e vermelha */
+  overflow: hidden; /* Esconde conteúdo que ultrapassa */
+  border: 2px solid #b30000; /* Borda vermelha temática */
+  position: relative; /* Para posicionar pseudo-elementos */
 }
 
 .contato-card::before {
@@ -89,25 +94,30 @@
   100% { left: 100%; }
 }
 
-/* Imagens do contato lado a lado */
+/* ==============================
+   IMAGENS DE CONTATO
+   Galeria de imagens lado a lado com efeitos hover
+   ============================== */
+/* Container das imagens - Layout horizontal */
 .contato-imagens {
-  display: flex;
-  flex-direction: row;
-  gap: 32px;
-  justify-content: center;
-  align-items: center;
-  margin: 32px 0 24px 0;
+  display: flex; /* Layout flex para organizar imagens */
+  flex-direction: row; /* Imagens em linha horizontal */
+  gap: 32px; /* Espaçamento entre as imagens */
+  justify-content: center; /* Centraliza as imagens */
+  align-items: center; /* Alinha verticalmente */
+  margin: 32px 0 24px 0; /* Margens para separar do conteúdo */
 }
 
+/* Estilo individual das imagens */
 .contato-img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3), 0 0 10px rgba(179, 0, 0, 0.2);
-  border: 3px solid #b30000;
-  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
-  filter: brightness(0.9) contrast(1.1);
+  width: 120px; /* Largura fixa para uniformidade */
+  height: 120px; /* Altura fixa para formato quadrado */
+  object-fit: cover; /* Mantém proporção cortando se necessário */
+  border-radius: 16px; /* Bordas arredondadas */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3), 0 0 10px rgba(179, 0, 0, 0.2); /* Dupla sombra */
+  border: 3px solid #b30000; /* Borda vermelha temática */
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s; /* Transições suaves */
+  filter: brightness(0.9) contrast(1.1); /* Ajuste de brilho e contraste */
 }
 
 .contato-img:hover {

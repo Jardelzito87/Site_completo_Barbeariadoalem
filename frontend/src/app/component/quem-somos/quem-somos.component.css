@@ -1,13 +1,18 @@
+/* ==============================
+   CONTAINER PRINCIPAL - QUEM SOMOS
+   Container que envolve todo o conteúdo da página
+   ============================== */
+/* Container principal da página Quem Somos */
 .quem-somos-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: #1a1a1a;
-    color: #c0c0c0;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-    position: relative;
-    overflow: hidden;
+    max-width: 900px; /* Largura máxima para boa legibilidade */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 2rem; /* Espaçamento interno generoso */
+    background-color: #1a1a1a; /* Fundo escuro temático */
+    color: #c0c0c0; /* Texto claro para contraste */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Sombra profunda */
+    position: relative; /* Para posicionar pseudo-elementos */
+    overflow: hidden; /* Esconde conteúdo que ultrapassa */
 }
 
 .quem-somos-container::before {
@@ -99,26 +104,33 @@ p {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
+/* ==============================
+   SEÇÃO DA EQUIPE
+   Área que apresenta os membros da equipe
+   ============================== */
+/* Container da seção da equipe */
 .team-section {
-    margin-top: 3rem;
+    margin-top: 3rem; /* Espaço generoso acima */
 }
 
+/* Container dos membros da equipe */
 .team-members {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
-    margin-top: 2rem;
+    display: flex; /* Layout flex para organizar membros */
+    flex-wrap: wrap; /* Permite quebra de linha */
+    gap: 2rem; /* Espaçamento entre membros */
+    justify-content: space-between; /* Distribui espaço uniformemente */
+    margin-top: 2rem; /* Espaço acima dos membros */
 }
 
+/* Card individual de cada membro */
 .member {
-    flex: 1;
-    min-width: 250px;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 1.5rem;
-    border-radius: 5px;
-    text-align: center;
-    transition: transform 0.3s ease;
+    flex: 1; /* Cresce para ocupar espaço disponível */
+    min-width: 250px; /* Largura mínima para manter legibilidade */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo escuro semi-transparente */
+    padding: 1.5rem; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    text-align: center; /* Centraliza conteúdo */
+    transition: transform 0.3s ease; /* Transição suave para hover */
 }
 
 .member:hover {

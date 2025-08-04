@@ -23,21 +23,22 @@ body {
 
 /* ==============================
    HEADER E NAVEGAÇÃO PRINCIPAL
+   Cabeçalho fixo com navegação e elementos decorativos
    ============================== */
 
-/* Header principal fixo - Sempre visível no topo */
+/* Header principal fixo - Sempre visível no topo da página */
 .header-barbearia {
-    display: flex; /* Layout flexível */
-    flex-direction: column; /* Empilha elementos verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    background: #222; /* Fundo escuro sólido */
-    padding: 24px 0 12px 0; /* Espaçamento interno assimétrico */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Sombra sutil para profundidade */
-    position: fixed; /* Fixo no topo da tela */
-    top: 0; /* Posicionado no topo */
-    left: 0; /* Alinhado à esquerda */
-    width: 100%; /* Largura total da tela */
-    z-index: 1000; /* Fica acima de outros elementos */
+    display: flex; /* Layout flexível para organizar elementos */
+    flex-direction: column; /* Empilha logo e menu verticalmente */
+    align-items: center; /* Centraliza todos os elementos horizontalmente */
+    background: #222; /* Fundo escuro sólido para contraste */
+    padding: 24px 0 12px 0; /* Padding maior no topo, menor embaixo */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Sombra sutil para dar profundidade */
+    position: fixed; /* Fixo no topo - não move com scroll */
+    top: 0; /* Grudado no topo da janela */
+    left: 0; /* Alinhado à borda esquerda */
+    width: 100%; /* Ocupa toda a largura da tela */
+    z-index: 1000; /* Índice alto para ficar acima de outros elementos */
 }
 
 /* Container interno do header - Limita largura máxima */
@@ -51,21 +52,25 @@ body {
     padding: 0 20px; /* Padding lateral para mobile */
 }
 
-/* Ícones fantasmas decorativos - Animação flutuante */
+/* ==============================
+   ÍCONES FANTASMAS DECORATIVOS
+   Elementos temáticos com animação flutuante
+   ============================== */
+/* Base para todos os ícones fantasmas - Animação flutuante */
 .ghost-icon {
-    position: absolute; /* Posicionamento absoluto dentro do container */
-    animation: float 3s ease-in-out infinite; /* Animação de flutuar contínua */
+    position: absolute; /* Posicionamento absoluto para controle preciso */
+    animation: float 3s ease-in-out infinite; /* Animação contínua de flutuação suave */
 }
 
-/* Fantasma da esquerda - Posicionamento fixo */
+/* Fantasma posicionado à esquerda do header */
 .ghost-left {
-    left: 20px; /* 20px da borda esquerda */
+    left: 20px; /* Distância de 20px da borda esquerda */
 }
 
-/* Fantasma da direita - Posicionamento e delay de animação */
+/* Fantasma posicionado à direita do header */
 .ghost-right {
-    right: 20px; /* 20px da borda direita */
-    animation-delay: 1.5s; /* Delay para criar movimento dessincronizado */
+    right: 20px; /* Distância de 20px da borda direita */
+    animation-delay: 1.5s; /* Delay de 1.5s para criar movimento dessincronizado */
 }
 
 /* Estilo dos SVGs dos fantasmas */

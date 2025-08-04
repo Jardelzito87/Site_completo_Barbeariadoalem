@@ -1,47 +1,54 @@
-/* Rodapé fixo na parte inferior */
+/* ==============================
+   RODAPÉ FIXO - SEMPRE VISÍVEL
+   ============================== */
+/* Rodapé fixo na parte inferior da tela - sempre visível */
 .footer-barbearia {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background: #222;
-  color: #fff;
-  text-align: center;
-  padding: 1rem 0;
-  z-index: 100;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+  position: fixed; /* Fixo na tela, não move com scroll */
+  left: 0; /* Alinhado à esquerda */
+  bottom: 0; /* Colado na parte inferior */
+  width: 100%; /* Ocupa toda a largura da tela */
+  background: #222; /* Fundo escuro para contraste */
+  color: #fff; /* Texto branco */
+  text-align: center; /* Texto centralizado */
+  padding: 1rem 0; /* Espaçamento interno vertical */
+  z-index: 100; /* Fica acima de outros elementos */
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08); /* Sombra sutil para cima */
 }
 
-/* Adiciona espaço no final do main para o rodapé fixo */
+/* Compensa o espaço ocupado pelo rodapé fixo */
 main {
-  padding-bottom: 80px; /* Espaço para o rodapé fixo */
+  padding-bottom: 80px; /* Espaço reservado para o rodapé fixo não sobrepor conteúdo */
 }
 
-/* Media queries para o app component */
+/* ==============================
+   RESPONSIVIDADE - ADAPTAÇÃO PARA DIFERENTES TELAS
+   ============================== */
+/* Tablets e telas médias (até 768px) */
 @media (max-width: 768px) {
   .footer-barbearia {
-    padding: 0.8rem 0;
-    font-size: 0.9rem;
+    padding: 0.8rem 0; /* Padding reduzido para telas menores */
+    font-size: 0.9rem; /* Fonte ligeiramente menor */
   }
   
   main {
-    padding-bottom: 70px;
+    padding-bottom: 70px; /* Menos espaço reservado devido ao rodapé menor */
   }
 }
 
+/* Smartphones (até 480px) */
 @media (max-width: 480px) {
   .footer-barbearia {
-    padding: 0.6rem 0;
-    font-size: 0.85rem;
+    padding: 0.6rem 0; /* Padding ainda menor para mobile */
+    font-size: 0.85rem; /* Fonte menor para caber melhor */
   }
   
   .footer-barbearia p {
-    margin: 0;
-    line-height: 1.3;
+    margin: 0; /* Remove margem dos parágrafos */
+    line-height: 1.3; /* Altura da linha mais compacta */
   }
   
   main {
-    padding-bottom: 60px;
+    padding-bottom: 60px; /* Espaço mínimo para mobile */
   }
 }
 /* ==============================

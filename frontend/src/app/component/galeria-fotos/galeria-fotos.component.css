@@ -11,32 +11,41 @@
     border-color: #b30000;
 }
 
+/* ==============================
+   CONTAINER PRINCIPAL DA GALERIA
+   Container com fundo escuro e efeitos visuais
+   ============================== */
+/* Container principal que envolve toda a galeria */
 .gallery-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 40px 25px;
-  background: rgba(24, 24, 24, 0.9);
-  border-radius: 20px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(212, 175, 55, 0.1);
+  max-width: 1300px; /* Largura máxima para telas grandes */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 40px 25px; /* Espaçamento interno generoso */
+  background: rgba(24, 24, 24, 0.9); /* Fundo escuro semi-transparente */
+  border-radius: 20px; /* Bordas bem arredondadas */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); /* Sombra profunda para destaque */
+  backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
+  border: 1px solid rgba(212, 175, 55, 0.1); /* Borda dourada sutil */
 }
 
-/* GALERIA - Título melhorado */
+/* ==============================
+   TÍTULO DA GALERIA
+   Título principal com efeitos visuais temáticos
+   ============================== */
+/* Título principal da galeria com fonte temática */
 .gallery-title {
-  font-family: 'Creepster', cursive;
-  color: #d4af37; 
-  font-size: 3rem;
-  text-align: center;
-  margin: 0 0 20px 0;
+  font-family: 'Creepster', cursive; /* Fonte temática de terror */
+  color: #d4af37; /* Dourado elegante */
+  font-size: 3rem; /* Tamanho grande para destaque */
+  text-align: center; /* Centralizado */
+  margin: 0 0 20px 0; /* Margem apenas embaixo */
   text-shadow: 
-    0 0 10px rgba(212, 175, 55, 0.5),
-    0 0 20px rgba(212, 175, 55, 0.3),
-    0 4px 15px rgba(0, 0, 0, 0.8);
-  letter-spacing: 3px;
-  font-weight: bold;
-  text-transform: uppercase;
-  position: relative;
+    0 0 10px rgba(212, 175, 55, 0.5), /* Brilho dourado interno */
+    0 0 20px rgba(212, 175, 55, 0.3), /* Brilho dourado externo */
+    0 4px 15px rgba(0, 0, 0, 0.8); /* Sombra preta para profundidade */
+  letter-spacing: 3px; /* Espaçamento entre letras */
+  font-weight: bold; /* Texto em negrito */
+  text-transform: uppercase; /* Todas as letras maiúsculas */
+  position: relative; /* Para posicionar pseudo-elementos */
 }
 
 .gallery-title::after {
@@ -172,21 +181,31 @@
   }
 }
 
+/* ==============================
+   GRID DA GALERIA
+   Layout responsivo em grid para as fotos
+   ============================== */
+/* Grid principal que organiza os itens da galeria */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
-  min-height: 200px;
+  display: grid; /* Layout em grid para organização automática */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Colunas responsivas */
+  gap: 25px; /* Espaçamento entre os itens */
+  min-height: 200px; /* Altura mínima para evitar colapso */
 }
 
+/* ==============================
+   ITEM INDIVIDUAL DA GALERIA
+   Card que contém cada foto com informações
+   ============================== */
+/* Container individual de cada foto */
 .gallery-item {
-  background: #222;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.4s ease;
-  border: 2px solid transparent;
-  animation: fadeIn 0.5s ease-in-out;
+  background: #222; /* Fundo escuro */
+  border-radius: 12px; /* Bordas arredondadas */
+  overflow: hidden; /* Esconde conteúdo que ultrapassa */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  transition: all 0.4s ease; /* Transição suave para hover */
+  border: 2px solid transparent; /* Borda transparente inicial */
+  animation: fadeIn 0.5s ease-in-out; /* Animação de entrada */
 }
 
 @keyframes fadeIn {

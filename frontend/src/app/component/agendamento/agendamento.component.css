@@ -1,22 +1,28 @@
 /* ==============================
    ESTILOS ESPECÍFICOS DE AGENDAMENTO
+   Estilos exclusivos para a página de agendamento
    ============================== */
 
-/* Tabela Depoimentos & Agendamento estilo Excel */
+/* ==============================
+   TABELA DE DEPOIMENTOS E AGENDAMENTO
+   Tabela estilizada no estilo Excel com tema escuro
+   ============================== */
+/* Container da tabela - Centraliza e define espaçamento */
 .depoimentos-agendamento-tabela-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 56px 0 32px 0;
+  display: flex; /* Layout flex para centralização */
+  justify-content: center; /* Centraliza a tabela horizontalmente */
+  margin: 56px 0 32px 0; /* Margens generosas para separar do conteúdo */
 }
 
+/* Tabela principal com estilo Excel escuro */
 .tabela-depoimentos-agendamento {
-  border-collapse: collapse;
-  min-width: 600px;
-  background: #181818;
-  box-shadow: 0 4px 24px rgba(255,0,0,0.15);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 3px solid #b30000;
+  border-collapse: collapse; /* Remove espaços entre bordas das células */
+  min-width: 600px; /* Largura mínima para garantir legibilidade */
+  background: #181818; /* Fundo escuro para tema da barbearia */
+  box-shadow: 0 4px 24px rgba(255,0,0,0.15); /* Sombra vermelha sutil */
+  border-radius: 12px; /* Bordas arredondadas modernas */
+  overflow: hidden; /* Esconde conteúdo que ultrapassa as bordas */
+  border: 3px solid #b30000; /* Borda vermelha temática */
 }
 
 .tabela-depoimentos-agendamento th {
@@ -269,28 +275,34 @@ h2 {
   letter-spacing: 1px;
 }
 
+/* ==============================
+   FORMULÁRIO DE AGENDAMENTO
+   Container principal do formulário com fundo temático
+   ============================== */
+/* Container principal do formulário */
 .agendamento-form {
-  background-color: rgba(20, 20, 20, 0.8);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-  border: 1px solid #333;
-  position: relative;
-  overflow: hidden;
+  background-color: rgba(20, 20, 20, 0.8); /* Fundo escuro semi-transparente */
+  padding: 30px; /* Espaçamento interno generoso */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Sombra profunda para destaque */
+  border: 1px solid #333; /* Borda sutil */
+  position: relative; /* Para posicionar o pseudo-elemento */
+  overflow: hidden; /* Esconde o fundo que ultrapassa */
 }
 
+/* Fundo decorativo do formulário */
 .agendamento-form::before {
-  content: '';
-  position: absolute;
-  top: 0;
+  content: ''; /* Pseudo-elemento vazio */
+  position: absolute; /* Posicionamento absoluto */
+  top: 0; /* Cobre toda a área */
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/images/background.jpg');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.1;
-  z-index: -1;
+  background: url('/images/background.jpg'); /* Imagem de fundo */
+  background-size: cover; /* Cobre toda a área */
+  background-position: center; /* Centraliza a imagem */
+  opacity: 0.1; /* Muito transparente para não atrapalhar a leitura */
+  z-index: -1; /* Fica atrás do conteúdo */
 }
 
 .form-section {

@@ -1,45 +1,50 @@
 /* ===========================================
    API DOCUMENTATION - BARBEARIA DO ALÉM
+   Arquivo CSS para estilização da documentação da API
    =========================================== */
 
-/* Reset e base */
+/* Reset universal - Remove estilos padrão do navegador */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box; /* Inclui padding e border no cálculo da largura/altura */
+  margin: 0; /* Remove margem padrão */
+  padding: 0; /* Remove padding padrão */
 }
 
+/* Configuração base do corpo da página */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f8f9fa;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte principal moderna */
+  line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
+  color: #333; /* Cor do texto principal */
+  background-color: #f8f9fa; /* Cor de fundo cinza claro */
+  max-width: 1200px; /* Largura máxima do conteúdo */
+  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+  padding: 20px; /* Espaçamento interno */
 }
 
-/* Header */
+/* Estilos dos títulos - Hierarquia visual clara */
+/* Título principal (h1) - Destaque máximo */
 h1 {
-  color: #8a2be2;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid #8a2be2;
-  padding-bottom: 1rem;
+  color: #8a2be2; /* Roxo vibrante para destaque */
+  text-align: center; /* Centralizado */
+  margin-bottom: 2rem; /* Espaço generoso abaixo */
+  font-size: 2.5rem; /* Tamanho grande para hierarquia */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidade */
+  border-bottom: 3px solid #8a2be2; /* Linha decorativa abaixo */
+  padding-bottom: 1rem; /* Espaço entre texto e linha */
 }
 
+/* Títulos secundários (h2) - Seções principais */
 h2 {
-  color: #4169e1;
-  margin: 2rem 0 1rem;
-  font-size: 1.8rem;
+  color: #4169e1; /* Azul real para diferenciação */
+  margin: 2rem 0 1rem; /* Espaçamento vertical adequado */
+  font-size: 1.8rem; /* Tamanho intermediário */
 }
 
+/* Títulos terciários (h3) - Subseções */
 h3 {
-  color: #2c3e50;
-  margin: 1rem 0 0.5rem;
-  font-size: 1.2rem;
+  color: #2c3e50; /* Cinza escuro para hierarquia */
+  margin: 1rem 0 0.5rem; /* Espaçamento menor */
+  font-size: 1.2rem; /* Tamanho menor */
 }
 
 /* Container principal */

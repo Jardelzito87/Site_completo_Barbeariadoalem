@@ -1,21 +1,28 @@
+/* ==============================
+   PÁGINA 404 - NÃO ENCONTRADO
+   Estilos para a página de erro 404
+   ============================== */
+/* Container principal da página 404 */
 .not-found-container {
-    text-align: center;
-    padding: 3rem 1rem;
-    max-width: 600px;
-    margin: 0 auto;
+    text-align: center; /* Centraliza todo o conteúdo */
+    padding: 3rem 1rem; /* Padding generoso */
+    max-width: 600px; /* Largura máxima para legibilidade */
+    margin: 0 auto; /* Centraliza horizontalmente */
 }
 
+/* Número 404 - Destaque principal */
 h1 {
-    font-size: 6rem;
-    margin: 0;
-    color: #e74c3c;
+    font-size: 6rem; /* Tamanho muito grande para impacto */
+    margin: 0; /* Remove margem padrão */
+    color: #e74c3c; /* Vermelho para indicar erro */
 }
 
+/* Título da mensagem de erro */
 h2 {
-    font-size: 2rem;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    color: #2c3e50;
+    font-size: 2rem; /* Tamanho grande mas menor que o 404 */
+    margin-top: 0; /* Remove margem superior */
+    margin-bottom: 2rem; /* Espaço abaixo */
+    color: #2c3e50; /* Cinza escuro para contraste */
 }
 
 p {

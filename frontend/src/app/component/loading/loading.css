@@ -1,16 +1,22 @@
 /* ===========================================
    LOADING Painel - BARBEARIA DO ALÉM
+   Tela de carregamento inicial da aplicação
    =========================================== */
 
+/* ==============================
+   CONTAINER PRINCIPAL DO LOADING
+   Tela de carregamento que ocupa toda a viewport
+   ============================== */
+/* Container principal que ocupa toda a tela */
 #initial-loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #8a2be2, #4169e1);
-  margin: 0;
-  padding: 0;
+  display: flex; /* Layout flex para centralização */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  height: 100vh; /* Altura total da viewport */
+  font-family: 'Arial', sans-serif; /* Fonte padrão */
+  background: linear-gradient(135deg, #8a2be2, #4169e1); /* Gradiente roxo para azul */
+  margin: 0; /* Remove margem */
+  padding: 0; /* Remove padding */
 }
 
 .loader-content {
@@ -85,20 +91,25 @@
   }
 }
 
-/* Loading spinner */
+/* ==============================
+   SPINNER DE CARREGAMENTO
+   Animação circular que indica carregamento
+   ============================== */
+/* Spinner circular animado */
 .spinner {
-  margin: 20px auto;
-  width: 40px;
-  height: 40px;
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top: 4px solid #ffd700;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+  margin: 20px auto; /* Centraliza com margem */
+  width: 40px; /* Largura do spinner */
+  height: 40px; /* Altura do spinner */
+  border: 4px solid rgba(255, 255, 255, 0.3); /* Borda base transparente */
+  border-top: 4px solid #ffd700; /* Borda superior dourada */
+  border-radius: 50%; /* Formato circular */
+  animation: spin 1s linear infinite; /* Animação de rotação contínua */
 }
 
+/* Animação de rotação do spinner */
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% { transform: rotate(0deg); } /* Início - sem rotação */
+  100% { transform: rotate(360deg); } /* Fim - rotação completa */
 }
 
 /* Responsividade */

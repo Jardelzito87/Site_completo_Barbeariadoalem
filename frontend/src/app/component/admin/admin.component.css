@@ -5,17 +5,21 @@
   color: #c0c0c0;
 }
 
-/* ===== USER HEADER ===== */
+/* ==============================
+   HEADER DO USUÁRIO ADMIN
+   Cabeçalho com informações do usuário logado
+   ============================== */
+/* Container principal do header do usuário */
 .user-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(135deg, #2d3748, #4a5568);
-  border-radius: 12px;
-  padding: 15px 25px;
-  margin-bottom: 25px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  border: 1px solid #718096;
+  display: flex; /* Layout flex para organizar elementos */
+  justify-content: space-between; /* Espaça elementos nas extremidades */
+  align-items: center; /* Alinha verticalmente ao centro */
+  background: linear-gradient(135deg, #2d3748, #4a5568); /* Gradiente azul-acinzentado */
+  border-radius: 12px; /* Bordas arredondadas */
+  padding: 15px 25px; /* Padding horizontal maior que vertical */
+  margin-bottom: 25px; /* Espaço abaixo do header */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
+  border: 1px solid #718096; /* Borda sutil */
 }
 
 .user-info .welcome-text {
@@ -411,23 +415,33 @@ button:disabled {
   font-style: italic;
 }
 
+/* ==============================
+   LISTA DE AGENDAMENTOS
+   Grid responsivo para exibir cards de agendamentos
+   ============================== */
+/* Grid principal dos agendamentos */
 .agendamentos-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-  gap: 20px;
+  display: grid; /* Layout em grid */
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); /* Colunas responsivas */
+  gap: 20px; /* Espaçamento entre cards */
 }
 
+/* ==============================
+   CARD INDIVIDUAL DE AGENDAMENTO
+   Container que exibe informações de um agendamento
+   ============================== */
+/* Card individual de cada agendamento */
 .agendamento-card {
-  background-color: rgba(30, 30, 30, 0.9);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #444;
-  display: flex;
-  flex-direction: column;
-  min-height: 400px;
-  max-height: 500px;
+  background-color: rgba(30, 30, 30, 0.9); /* Fundo escuro semi-transparente */
+  border-radius: 10px; /* Bordas arredondadas */
+  overflow: hidden; /* Esconde conteúdo que ultrapassa */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombra para profundidade */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+  border: 1px solid #444; /* Borda sutil */
+  display: flex; /* Layout flex */
+  flex-direction: column; /* Organiza conteúdo verticalmente */
+  min-height: 400px; /* Altura mínima para uniformidade */
+  max-height: 500px; /* Altura máxima para controle */
 }
 
 .agendamento-card:hover {
