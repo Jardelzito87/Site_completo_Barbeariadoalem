@@ -1,73 +1,129 @@
+/**
+ * ==============================
+ * SERVIÇO DE BANCO DE DADOS
+ * Gerencia todas as operações com a API do backend
+ * ==============================
+ */
+
+// Importações do Angular Core
 import { Injectable } from '@angular/core';
+// Importações para requisições HTTP
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+// Importações do RxJS
 import { Observable } from 'rxjs';
+// Configurações de ambiente
 import { environment } from '../../environments/environment';
 
+/**
+ * INTERFACE DO SERVIÇO
+ * Define a estrutura dos serviços oferecidos pela barbearia
+ */
 export interface Servico {
-  id: number;
-  nome: string;
-  descricao: string;
-  preco: number;
+  id: number; // ID único do serviço
+  nome: string; // Nome do serviço (ex: "Corte Sobrenatural")
+  descricao: string; // Descrição detalhada do serviço
+  preco: number; // Preço do serviço em reais
 }
 
+/**
+ * INTERFACE DO CLIENTE
+ * Define a estrutura dos dados do cliente
+ */
 export interface Cliente {
-  id?: number;
-  nome: string;
-  email: string;
-  telefone: string;
+  id?: number; // ID único (opcional, gerado pelo backend)
+  nome: string; // Nome completo do cliente
+  email: string; // Email para contato
+  telefone: string; // Telefone para contato
 }
 
+/**
+ * INTERFACE DO AGENDAMENTO
+ * Define a estrutura completa de um agendamento
+ */
 export interface Agendamento {
-  id?: number;
-  cliente_id: number;
-  servico_id: number;
-  data_agendada: string;
-  hora_agendada: string;
-  observacoes: string;
-  status?: string;
-  cliente_nome?: string;
-  cliente_email?: string;
-  cliente_telefone?: string;
-  servico_nome?: string;
-  servico_preco?: number;
+  id?: number; // ID único (opcional, gerado pelo backend)
+  cliente_id: number; // ID do cliente que fez o agendamento
+  servico_id: number; // ID do serviço agendado
+  data_agendada: string; // Data do agendamento (formato YYYY-MM-DD)
+  hora_agendada: string; // Hora do agendamento (formato HH:MM:SS)
+  observacoes: string; // Observações adicionais do cliente
+  status?: string; // Status do agendamento (pendente, confirmado, concluido, etc.)
+  
+  // Campos adicionais retornados pelo backend (JOINs)
+  cliente_nome?: string; // Nome do cliente (obtido via JOIN)
+  cliente_email?: string; // Email do cliente (obtido via JOIN)
+  cliente_telefone?: string; // Telefone do cliente (obtido via JOIN)
+  servico_nome?: string; // Nome do serviço (obtido via JOIN)
+  servico_preco?: number; // Preço do serviço (obtido via JOIN)
 }
 
+/**
+ * INTERFACE DE DISPONIBILIDADE
+ * Define a estrutura para verificar disponibilidade de horários
+ */
 export interface Disponibilidade {
-  horario: string;
-  disponivel: boolean;
+  horario: string; // Horário no formato HH:MM
+  disponivel: boolean; // Se o horário está disponível ou ocupado
 }
 
+/**
+ * INTERFACE DE DATA BLOQUEADA
+ * Define a estrutura para datas bloqueadas pelo administrador
+ */
 export interface DataBloqueada {
-  data: string;
-  motivo?: string;
+  data: string; // Data bloqueada no formato YYYY-MM-DD
+  motivo?: string; // Motivo do bloqueio (opcional)
 }
 
+/**
+ * INTERFACE DE LOG DE AGENDAMENTO
+ * Define a estrutura dos logs de alterações nos agendamentos
+ */
 export interface LogAgendamento {
-  id: number;
-  agendamento_id: number | null;
-  status_anterior: string | null;
-  status_novo: string;
-  alterado_por: string;
-  criado_em: string;
-  data_agendada: string;
-  hora_agendada: string;
-  cliente_nome: string;
+  id: number; // ID único do log
+  agendamento_id: number | null; // ID do agendamento alterado
+  status_anterior: string | null; // Status anterior do agendamento
+  status_novo: string; // Novo status do agendamento
+  alterado_por: string; // Nome do administrador que fez a alteração
+  criado_em: string; // Data/hora da alteração
+  data_agendada: string; // Data do agendamento
+  hora_agendada: string; // Hora do agendamento
+  cliente_nome: string; // Nome do cliente
 }
 
+/**
+ * SERVIÇO DE BANCO DE DADOS
+ * Serviço responsável por:
+ * - Comunicar com a API do backend
+ * - Gerenciar operações CRUD de clientes, agendamentos e serviços
+ * - Validar duplicatas e disponibilidade
+ * - Gerenciar datas bloqueadas
+ * - Obter logs de alterações
+ */
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // Serviço singleton disponível em toda a aplicação
 })
 export class DatabaseService {
-  private apiUrl = environment.apiUrl; // URL do backend
+  /** URL base da API obtida das configurações de ambiente */
+  private apiUrl = environment.apiUrl;
 
+  /**
+   * CONSTRUTOR
+   * Injeta o HttpClient para fazer requisições HTTP
+   * @param http - Cliente HTTP do Angular
+   */
   constructor(private http: HttpClient) { }
 
-  // Obter headers de autenticação
+  /**
+   * OBTER HEADERS DE AUTENTICAÇÃO
+   * Método privado que cria headers com token JWT para requisições autenticadas
+   * @returns HttpHeaders com Authorization Bearer token
+   */
   private getAuthHeaders(): HttpHeaders {
     const token = localStorage.getItem('admin-token');
     return new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
+      'Authorization': `Bearer ${token}`, // Token JWT para autenticação
+      'Content-Type': 'application/json' // Tipo de conteúdo JSON
     });
   }
 

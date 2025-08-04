@@ -1,34 +1,74 @@
+/**
+ * ==============================
+ * SERVIÇO DE AUTENTICAÇÃO
+ * Gerencia login, logout e estado de autenticação dos administradores
+ * ==============================
+ */
+
+// Importações do Angular Core
 import { Injectable } from '@angular/core';
+// Importações para requisições HTTP
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+// Importações do RxJS para programação reativa
 import { BehaviorSubject, Observable, tap, catchError, throwError } from 'rxjs';
+// Configurações de ambiente (URLs da API)
 import { environment } from '../../environments/environment';
 
+/**
+ * INTERFACE DO ADMINISTRADOR
+ * Define a estrutura dos dados de um administrador
+ */
 export interface Admin {
-  id: number;
-  nome: string;
-  email: string;
-  nivelAcesso: string;
-  ultimoLogin?: string;
+  id: number; // ID único do administrador
+  nome: string; // Nome completo
+  email: string; // Email para login
+  nivelAcesso: string; // Nível de acesso (admin, super_admin, etc.)
+  ultimoLogin?: string; // Data do último login (opcional)
 }
 
+/**
+ * INTERFACE DA RESPOSTA DE LOGIN
+ * Define a estrutura da resposta da API ao fazer login
+ */
 export interface LoginResponse {
-  success: boolean;
-  token: string;
-  admin: Admin;
+  success: boolean; // Indica se o login foi bem-sucedido
+  token: string; // Token JWT para autenticação
+  admin: Admin; // Dados do administrador logado
 }
 
+/**
+ * SERVIÇO DE AUTENTICAÇÃO
+ * Serviço singleton responsável por:
+ * - Gerenciar login e logout de administradores
+ * - Manter estado de autenticação em tempo real
+ * - Validar e armazenar tokens JWT
+ * - Fornecer headers de autenticação para requisições
+ */
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // Serviço singleton disponível em toda a aplicação
 })
 export class AuthService {
+  /** URL base da API obtida das configurações de ambiente */
   private apiUrl = environment.apiUrl;
-  private tokenKey = 'admin-token';
-  private adminKey = 'admin-logado';
   
-  // BehaviorSubject para gerenciar o estado de autenticação
+  /** Chaves para armazenamento no localStorage */
+  private tokenKey = 'admin-token'; // Chave para armazenar o token JWT
+  private adminKey = 'admin-logado'; // Chave para armazenar dados do admin
+  
+  /**
+   * GERENCIAMENTO DE ESTADO REATIVO
+   * BehaviorSubjects para notificar componentes sobre mudanças no estado de autenticação
+   */
+  // Subject para estado de autenticação (logado/não logado)
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
+  // Subject para dados do administrador atual
   private currentAdminSubject = new BehaviorSubject<Admin | null>(this.getStoredAdmin());
 
+  /**
+   * CONSTRUTOR
+   * Injeta o HttpClient para fazer requisições HTTP
+   * @param http - Cliente HTTP do Angular
+   */
   constructor(private http: HttpClient) { }
 
   // Observables públicos
